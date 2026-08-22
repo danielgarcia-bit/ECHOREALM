@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,7 @@
         }
 
         .boton {
+            display: inline-block;
             margin-top: 25px;
             padding: 15px 30px;
             background: white;
@@ -54,6 +56,29 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+        }
+
+        .productos {
+            min-height: 60vh;
+            padding: 80px 30px;
+            border-top: 1px solid #222;
+        }
+
+        .productos h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .producto-prueba {
+            margin: 40px auto;
+            max-width: 400px;
+            padding: 30px;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+
+        .producto-prueba p {
+            margin: 10px auto;
         }
 
         footer {
@@ -77,12 +102,35 @@
             Ropa, identidad y una nueva forma de vivir la marca.
         </p>
 
-        <a href="#" class="boton">EXPLORAR</a>
+        <a href="#productos" class="boton">
+            EXPLORAR
+        </a>
     </main>
+
+    <section id="productos" class="productos">
+
+        <h2>Productos</h2>
+
+        <p>
+            Descubre próximamente las prendas de Echorealm.
+        </p>
+
+        <div class="producto-prueba">
+
+            <h3>Próximamente</h3>
+
+            <p>
+                Nuestra primera colección llegará aquí.
+            </p>
+
+        </div>
+
+    </section>
 
     <footer>
         © 2026 Echorealm
     </footer>
 
 </body>
+
 </html>
