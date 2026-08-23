@@ -1,629 +1,1296 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ECHOREALM</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>ECHOREALM · Bienvenido</title>
+
+<meta
+    name="description"
+    content="Echorealm — un universo creado para convertir ideas en algo real."
+>
 
 <style>
 
+/* =========================================================
+   ECHOREALM
+   PALETA OFICIAL
+========================================================= */
+
+:root {
+
+    --blanco: #ffffff;
+    --blanco-suave: #f7fcff;
+
+    --azul-claro: #dff5ff;
+    --azul-muy-claro: #eefaff;
+    --azul: #9ddcf3;
+    --azul-fuerte: #54afd2;
+
+    --verde-claro: #e2f9ee;
+    --verde-muy-claro: #f1fcf7;
+    --verde: #a8e4c5;
+    --verde-fuerte: #6fc99c;
+
+    --texto: #29434f;
+    --texto-suave: #6d828c;
+
+    --borde: rgba(80, 170, 200, 0.16);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
-    box-sizing: border-box;
+
     margin: 0;
     padding: 0;
+
+    box-sizing: border-box;
+
 }
 
 html {
+
     scroll-behavior: smooth;
+
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #f8f7f4;
-    color: #292929;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--texto);
+
+    background: var(--blanco);
+
     overflow-x: hidden;
+
 }
 
-/* =========================
-   NAVEGACIÓN
-========================= */
+
+/* =========================================================
+   FONDOS DECORATIVOS
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    top: -220px;
+    left: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(157,220,243,0.32),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    right: -220px;
+    bottom: -220px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,228,197,0.28),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
 
 nav {
+
     position: fixed;
+
     top: 0;
     left: 0;
+
     width: 100%;
+
     height: 72px;
 
+    padding:
+        0 6%;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
-    padding: 0 7%;
-
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-
     z-index: 1000;
+
+    background:
+        rgba(255,255,255,0.80);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid var(--borde);
+
 }
 
+
+/* =========================================================
+   LOGO
+========================================================= */
+
 .logo {
-    font-size: 21px;
+
+    text-decoration: none;
+
+    color: var(--texto);
+
+    font-size: 20px;
+
     font-weight: 800;
-    letter-spacing: 3px;
+
+    letter-spacing: 4px;
+
     cursor: pointer;
+
 }
 
 .logo span {
-    color: #8b78d8;
+
+    color: var(--azul-fuerte);
+
 }
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
 
 .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-}
-
-.nav-links button {
-    border: none;
-    background: none;
-
-    font-size: 15px;
-    color: #444;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-.nav-links button:hover {
-    color: #8b78d8;
-    transform: translateY(-1px);
-}
-
-/* =========================
-   PÁGINAS
-========================= */
-
-.page {
-    display: none;
-    min-height: 100vh;
-}
-
-.page.active {
-    display: block;
-}
-
-/* =========================
-   INICIO
-========================= */
-
-#home {
-    padding-top: 72px;
-}
-
-/* HERO */
-
-.hero {
-    min-height: calc(100vh - 72px);
 
     display: flex;
+
     align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 50px 25px;
-
-    background:
-        radial-gradient(circle at 20% 20%, #e9e4ff 0%, transparent 32%),
-        radial-gradient(circle at 80% 30%, #dff6f0 0%, transparent 30%),
-        linear-gradient(135deg, #fffdfb, #f4f2ff);
-
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-content {
-    max-width: 850px;
-    animation: aparecer 1s ease;
-}
-
-.eyebrow {
-    display: inline-block;
-
-    padding: 8px 16px;
-
-    border-radius: 50px;
-
-    background: rgba(139,120,216,0.10);
-    color: #7662c6;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    letter-spacing: 1.5px;
-
-    margin-bottom: 22px;
-}
-
-.hero h1 {
-    font-size: clamp(55px, 10vw, 110px);
-    line-height: 0.95;
-
-    letter-spacing: -5px;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 span {
-    color: #8b78d8;
-}
-
-.hero h2 {
-    font-size: clamp(25px, 4vw, 42px);
-    font-weight: 500;
-
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 650px;
-
-    margin: auto;
-
-    color: #666;
-
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-/* BOTÓN EXPLORAR */
-
-.explore-button {
-    margin-top: 40px;
-
-    padding: 17px 35px;
-
-    border: none;
-    border-radius: 50px;
-
-    background: #292929;
-    color: white;
-
-    font-size: 16px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-
-    transition: 0.3s;
-}
-
-.explore-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.20);
-}
-
-/* =========================
-   HISTORIA
-========================= */
-
-.history-preview {
-    min-height: 75vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 100px 8%;
-
-    background: #fff;
-}
-
-.history-container {
-    max-width: 900px;
-    text-align: center;
-}
-
-.section-label {
-    color: #8b78d8;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    margin-bottom: 18px;
-}
-
-.history-container h2 {
-    font-size: clamp(38px, 6vw, 65px);
-
-    margin-bottom: 30px;
-}
-
-.history-container p {
-    color: #666;
-
-    font-size: 19px;
-    line-height: 1.9;
-}
-
-/* =========================
-   PRODUCTOS
-========================= */
-
-.products-page {
-    padding-top: 120px;
-    padding-bottom: 100px;
-
-    background:
-        radial-gradient(circle at 90% 10%, #e9e4ff, transparent 30%),
-        #f8f7f4;
-}
-
-.page-header {
-    text-align: center;
-
-    padding: 50px 25px;
-}
-
-.page-header h1 {
-    font-size: clamp(45px, 7vw, 80px);
-
-    margin-bottom: 20px;
-}
-
-.page-header p {
-    max-width: 650px;
-
-    margin: auto;
-
-    color: #666;
-
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-/* TARJETAS */
-
-.products-grid {
-    max-width: 1150px;
-
-    margin: 50px auto;
-
-    padding: 0 25px;
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
     gap: 25px;
+
+    list-style: none;
+
 }
 
-.product-card {
-    background: white;
+.nav-links a {
 
-    border: 1px solid rgba(0,0,0,0.06);
+    text-decoration: none;
 
-    border-radius: 28px;
-
-    padding: 25px;
-
-    min-height: 330px;
-
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-
-    transition: 0.3s;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.10);
-}
-
-.product-icon {
-    height: 160px;
-
-    border-radius: 22px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 55px;
-
-    background:
-        linear-gradient(135deg, #eeeaff, #e3f7f1);
-}
-
-.product-card h3 {
-    margin-top: 20px;
-
-    font-size: 23px;
-}
-
-.product-card p {
-    color: #777;
-
-    line-height: 1.6;
-
-    margin-top: 8px;
-}
-
-.product-button {
-    margin-top: 20px;
-
-    padding: 12px 18px;
-
-    border: none;
-
-    border-radius: 30px;
-
-    background: #eeeaff;
-
-    color: #6857ad;
-
-    font-weight: 700;
-
-    cursor: pointer;
-}
-
-/* =========================
-   HISTORIA COMPLETA
-========================= */
-
-.story-page {
-    padding-top: 120px;
-
-    min-height: 100vh;
-
-    background: #fff;
-}
-
-.story-content {
-    max-width: 900px;
-
-    margin: auto;
-
-    padding: 50px 25px 100px;
-}
-
-.story-content h1 {
-    font-size: clamp(45px, 7vw, 75px);
-
-    margin-bottom: 35px;
-}
-
-.story-content p {
-    font-size: 19px;
-
-    line-height: 2;
-
-    color: #666;
-
-    margin-bottom: 25px;
-}
-
-/* =========================
-   INFO
-========================= */
-
-.info-page {
-    padding-top: 120px;
-
-    min-height: 100vh;
-
-    background:
-        linear-gradient(135deg, #fff, #f2efff);
-}
-
-.info-content {
-    max-width: 900px;
-
-    margin: auto;
-
-    text-align: center;
-
-    padding: 50px 25px;
-}
-
-.info-content h1 {
-    font-size: clamp(45px, 7vw, 75px);
-
-    margin-bottom: 30px;
-}
-
-.info-boxes {
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-
-    gap: 20px;
-
-    margin-top: 50px;
-}
-
-.info-box {
-    background: rgba(255,255,255,0.8);
-
-    padding: 35px 25px;
-
-    border-radius: 25px;
-
-    border: 1px solid rgba(0,0,0,0.05);
-}
-
-.info-box .big {
-    font-size: 40px;
-
-    margin-bottom: 15px;
-}
-
-.info-box h3 {
-    margin-bottom: 10px;
-}
-
-.info-box p {
-    color: #777;
-
-    line-height: 1.6;
-}
-
-/* =========================
-   PIE
-========================= */
-
-footer {
-    padding: 35px 20px;
-
-    text-align: center;
-
-    background: #292929;
-
-    color: #fff;
+    color: var(--texto-suave);
 
     font-size: 14px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+
 }
 
-footer span {
-    color: #b7a9ff;
+.nav-links a:hover {
+
+    color: var(--azul-fuerte);
+
+    transform:
+        translateY(-1px);
+
 }
 
-/* =========================
-   ANIMACIONES
-========================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding:
+        120px 25px 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(223,245,255,0.9),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(226,249,238,0.85),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f6fcff
+        );
+
+}
+
+
+/* =========================================================
+   ORB DECORATIVO
+========================================================= */
+
+.hero-orb {
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(223,245,255,0.8),
+            rgba(226,249,238,0.35),
+            transparent 70%
+        );
+
+    filter: blur(12px);
+
+    animation:
+        flotar 8s ease-in-out infinite;
+
+}
+
+
+@keyframes flotar {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-22px)
+            scale(1.04);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTENIDO HERO
+========================================================= */
+
+.hero-content {
+
+    max-width: 900px;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        aparecer 1s ease;
+
+}
+
 
 @keyframes aparecer {
 
     from {
+
         opacity: 0;
-        transform: translateY(25px);
+
+        transform:
+            translateY(25px);
+
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
 
 }
 
-/* =========================
-   MÓVIL
-========================= */
 
-@media (max-width: 700px) {
+/* =========================================================
+   CORÍN
+========================================================= */
 
-    nav {
-        padding: 0 20px;
-    }
+.corin-mark {
 
-    .logo {
-        font-size: 17px;
-        letter-spacing: 2px;
-    }
+    width: 58px;
 
-    .nav-links {
-        gap: 12px;
-    }
+    height: 58px;
 
-    .nav-links button {
-        font-size: 12px;
-    }
+    margin:
+        0 auto 22px;
 
-    .hero h1 {
-        letter-spacing: -3px;
-    }
+    display: flex;
 
-    .hero p {
-        font-size: 16px;
-    }
+    align-items: center;
 
-    .history-container p {
-        font-size: 17px;
-    }
+    justify-content: center;
+
+    border-radius: 19px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--verde-claro)
+        );
+
+    border:
+        1px solid var(--borde);
+
+    color: var(--azul-fuerte);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 35px
+        rgba(90,170,200,0.10);
 
 }
 
-/* =========================
-   BOTÓN VOLVER
-========================= */
 
-.back-button {
-    display: block;
+/* =========================================================
+   ETIQUETA
+========================================================= */
 
-    margin: 40px auto 0;
+.eyebrow {
 
-    padding: 13px 25px;
+    display: inline-block;
 
-    border: 1px solid #ddd;
+    padding:
+        9px 17px;
 
-    border-radius: 30px;
+    border-radius: 50px;
 
-    background: white;
+    background:
+        rgba(223,245,255,0.65);
 
-    cursor: pointer;
+    color:
+        #4c9dbd;
+
+    font-size: 12px;
 
     font-weight: 700;
 
-    transition: 0.25s;
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+
 }
 
-.back-button:hover {
-    transform: translateY(-2px);
-    background: #f4f1ff;
+
+/* =========================================================
+   LOGO GRANDE
+========================================================= */
+
+.hero h1 {
+
+    font-size:
+        clamp(
+            55px,
+            12vw,
+            125px
+        );
+
+    line-height: 0.92;
+
+    letter-spacing:
+        clamp(
+            3px,
+            1.5vw,
+            10px
+        );
+
+    color:
+        var(--texto);
+
+    margin-bottom: 28px;
+
+}
+
+
+.hero h1 span {
+
+    color:
+        var(--azul-fuerte);
+
+}
+
+
+/* =========================================================
+   BIENVENIDO
+========================================================= */
+
+.hero h2 {
+
+    font-size:
+        clamp(
+            27px,
+            5vw,
+            45px
+        );
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+
+}
+
+
+.hero p {
+
+    max-width: 680px;
+
+    margin: auto;
+
+    color:
+        var(--texto-suave);
+
+    font-size: 19px;
+
+    line-height: 1.75;
+
+}
+
+
+/* =========================================================
+   BOTÓN EXPLORAR
+========================================================= */
+
+.explore-button {
+
+    margin-top: 42px;
+
+    padding:
+        17px 35px;
+
+    border:
+        1px solid
+        rgba(80,170,200,0.18);
+
+    border-radius: 50px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--verde-claro)
+        );
+
+    color:
+        #397b94;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 14px 40px
+        rgba(80,170,200,0.13);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.explore-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(80,170,200,0.20);
+
+}
+
+
+/* =========================================================
+   INDICADOR SCROLL
+========================================================= */
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        #87a1ac;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    animation:
+        subir 2s infinite;
+
+}
+
+
+@keyframes subir {
+
+    0%,100% {
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(-50%)
+            translateY(7px);
+
+    }
+
+}
+
+
+/* =========================================================
+   HISTORIA
+========================================================= */
+
+.history {
+
+    min-height: 100vh;
+
+    padding:
+        130px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #ffffff,
+            var(--blanco-suave)
+        );
+
+}
+
+
+.content-box {
+
+    max-width: 900px;
+
+    padding:
+        clamp(
+            35px,
+            7vw,
+            75px
+        );
+
+    border-radius: 36px;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    border:
+        1px solid var(--borde);
+
+    box-shadow:
+        0 25px 80px
+        rgba(80,170,200,0.08);
+
+}
+
+
+.section-label {
+
+    color:
+        var(--azul-fuerte);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
+
+}
+
+
+.content-box h2 {
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            72px
+        );
+
+    line-height: 1.05;
+
+    margin-bottom: 35px;
+
+}
+
+
+.content-box p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    color:
+        var(--texto-suave);
+
+    margin-bottom: 24px;
+
+}
+
+
+.highlight {
+
+    color:
+        #438fae;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   CORÍN DENTRO DE HISTORIA
+========================================================= */
+
+.corin-small {
+
+    display: inline-flex;
+
+    width: 42px;
+
+    height: 42px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--verde-claro)
+        );
+
+    color:
+        var(--azul-fuerte);
+
+    font-weight: 800;
+
+    margin-right: 10px;
+
+}
+
+
+/* =========================================================
+   SINGULARIDAD
+========================================================= */
+
+.singularity {
+
+    min-height: 100vh;
+
+    padding:
+        130px 25px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f4fcff,
+            #f4fff9
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.singularity-container {
+
+    max-width: 1100px;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+.singularity-container h2 {
+
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            75px
+        );
+
+    margin-bottom: 22px;
+
+}
+
+
+.singularity-intro {
+
+    max-width: 700px;
+
+    margin:
+        0 auto 55px;
+
+    color:
+        var(--texto-suave);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+
+.singularity-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+.singularity-card {
+
+    padding:
+        32px 25px;
+
+    background:
+        rgba(255,255,255,0.78);
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 27px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(80,170,200,0.07);
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.singularity-card:hover {
+
+    transform:
+        translateY(-7px);
+
+}
+
+
+.singularity-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul-claro),
+            var(--verde-claro)
+        );
+
+    color:
+        var(--azul-fuerte);
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+}
+
+
+.singularity-card h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
+
+}
+
+
+.singularity-card p {
+
+    color:
+        var(--texto-suave);
+
+    line-height: 1.7;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   SEGUNDA SINGULARIDAD
+========================================================= */
+
+.experience {
+
+    min-height: 85vh;
+
+    padding:
+        120px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        #ffffff;
+
+}
+
+
+.experience-container {
+
+    max-width: 900px;
+
+    text-align: center;
+
+}
+
+
+.experience-container h2 {
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            65px
+        );
+
+    margin-bottom: 25px;
+
+}
+
+
+.experience-container p {
+
+    color:
+        var(--texto-suave);
+
+    font-size: 18px;
+
+    line-height: 1.85;
+
+    margin-bottom: 25px;
+
+}
+
+
+.experience-line {
+
+    width: 100px;
+
+    height: 4px;
+
+    margin:
+        35px auto;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul),
+            var(--verde)
+        );
+
+}
+
+
+/* =========================================================
+   SEGUNDO EXPLORAR
+========================================================= */
+
+.final-explore {
+
+    min-height: 70vh;
+
+    padding:
+        100px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 30%,
+            var(--azul-claro),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            var(--verde-claro),
+            transparent 35%
+        ),
+
+        #ffffff;
+
+}
+
+
+.final-explore-content {
+
+    max-width: 700px;
+
+}
+
+
+.final-explore h2 {
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            70px
+        );
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-explore p {
+
+    color:
+        var(--texto-suave);
+
+    line-height: 1.8;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    padding:
+        35px 20px;
+
+    text-align: center;
+
+    background:
+        #f7fcff;
+
+    border-top:
+        1px solid var(--borde);
+
+    color:
+        #78909a;
+
+    font-size: 14px;
+
+}
+
+
+footer strong {
+
+    color:
+        var(--azul-fuerte);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    nav {
+
+        padding:
+            0 18px;
+
+    }
+
+    .nav-links {
+
+        gap: 10px;
+
+    }
+
+    .nav-links a {
+
+        font-size: 11px;
+
+    }
+
+    .logo {
+
+        font-size: 15px;
+
+        letter-spacing: 2px;
+
+    }
+
+    .hero {
+
+        padding-top: 105px;
+
+    }
+
+    .content-box {
+
+        border-radius: 27px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MÓVILES MUY PEQUEÑOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-links {
+
+        gap: 7px;
+
+    }
+
+    .nav-links a {
+
+        font-size: 9px;
+
+    }
+
+    .logo {
+
+        font-size: 13px;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: 2px;
+
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      NAVEGACIÓN
-========================= -->
+===================================================== -->
 
 <nav>
 
-    <div class="logo" onclick="mostrarPagina('home')">
+    <a
+        href="index.html"
+        class="logo"
+    >
+
         ECHO<span>REALM</span>
-    </div>
+
+    </a>
+
 
     <ul class="nav-links">
 
         <li>
-            <button onclick="mostrarPagina('home')">
+            <a href="index.html">
                 Inicio
-            </button>
+            </a>
         </li>
 
         <li>
-            <button onclick="mostrarPagina('products')">
+            <a href="productos.html">
                 Productos
-            </button>
+            </a>
         </li>
 
         <li>
-            <button onclick="mostrarPagina('story')">
+            <a href="#historia">
                 Nuestra historia
-            </button>
+            </a>
         </li>
 
         <li>
-            <button onclick="mostrarPagina('info')">
-                Info
-            </button>
+            <a href="#singularidad">
+                Singularidad
+            </a>
         </li>
 
     </ul>
@@ -631,392 +1298,456 @@ footer span {
 </nav>
 
 
-<!-- =========================
-     INICIO
-========================= -->
 
-<section id="home" class="page active">
+<!-- =====================================================
+     DIAPOSITIVA 1 — BIENVENIDA
+===================================================== -->
 
-    <div class="hero">
+<section
+    class="hero"
+    id="inicio"
+>
 
-        <div class="hero-content">
+    <div class="hero-orb"></div>
 
-            <div class="eyebrow">
-                BIENVENIDO A ECHOREALM
-            </div>
 
-            <h1>
-                ECHO<span>REALM</span>
-            </h1>
+    <div class="hero-content">
 
-            <h2>
-                Bienvenido a Corín
-            </h2>
 
-            <p>
-                Un pequeño universo creado para convertir ideas,
-                imaginación y creatividad en algo extraordinario.
-            </p>
+        <!-- CORÍN -->
 
-            <button
-                class="explore-button"
-                onclick="mostrarPagina('products')">
-
-                ✦ Explorar
-
-            </button>
-
+        <div class="corin-mark">
+            C
         </div>
 
-    </div>
 
-
-    <!-- SOLO ESTO APARECE AL BAJAR EN INICIO -->
-
-    <div class="history-preview">
-
-        <div class="history-container">
-
-            <div class="section-label">
-                Nuestra historia
-            </div>
-
-            <h2>
-                Donde nació todo.
-            </h2>
-
-            <p>
-                ECHOREALM nació de una idea sencilla:
-                crear un lugar donde la imaginación pudiera
-                convertirse en algo real.
-            </p>
-
-            <p>
-                Todo comenzó con la imaginación de un chico
-                de 12 años que quería construir su propio
-                pequeño universo y compartirlo con otras personas.
-            </p>
-
-            <p>
-                Y esto es solamente el principio.
-            </p>
-
+        <div class="eyebrow">
+            BIENVENIDO A ECHOREALM
         </div>
 
-    </div>
-
-    <footer>
-        © 2026 <span>ECHOREALM</span> · Creado con imaginación.
-    </footer>
-
-</section>
-
-
-<!-- =========================
-     PRODUCTOS
-========================= -->
-
-<section id="products" class="page products-page">
-
-    <div class="page-header">
-
-        <div class="section-label">
-            ECHOREALM
-        </div>
 
         <h1>
-            Productos
+            ECHO<span>REALM</span>
         </h1>
 
+
+        <h2>
+            Bienvenido a Corín
+        </h2>
+
+
         <p>
-            Descubre nuestro universo. Esta sección está
-            preparada para ir creciendo con nuevos productos,
-            ideas y creaciones.
+
+            Un pequeño universo creado para
+            convertir imaginación, ideas y creatividad
+            en algo real.
+
         </p>
 
-    </div>
 
+        <!-- PRIMER EXPLORAR -->
 
-    <div class="products-grid">
+        <a
+            href="productos.html"
+            class="explore-button"
+            style="display:inline-block;text-decoration:none;"
+        >
 
-        <div class="product-card">
+            ✦ EXPLORAR
 
-            <div class="product-icon">
-                ✨
-            </div>
-
-            <div>
-                <h3>
-                    Producto 01
-                </h3>
-
-                <p>
-                    Próximamente podrás descubrir
-                    nuestra primera creación.
-                </p>
-            </div>
-
-            <button class="product-button">
-                Próximamente
-            </button>
-
-        </div>
-
-
-        <div class="product-card">
-
-            <div class="product-icon">
-                🌙
-            </div>
-
-            <div>
-                <h3>
-                    Producto 02
-                </h3>
-
-                <p>
-                    Una nueva idea está tomando forma
-                    dentro de ECHOREALM.
-                </p>
-            </div>
-
-            <button class="product-button">
-                Próximamente
-            </button>
-
-        </div>
-
-
-        <div class="product-card">
-
-            <div class="product-icon">
-                💫
-            </div>
-
-            <div>
-                <h3>
-                    Producto 03
-                </h3>
-
-                <p>
-                    Algo especial llegará próximamente
-                    a nuestro universo.
-                </p>
-            </div>
-
-            <button class="product-button">
-                Próximamente
-            </button>
-
-        </div>
-
+        </a>
 
     </div>
 
 
-    <button
-        class="back-button"
-        onclick="mostrarPagina('home')">
-
-        ← Volver al inicio
-
-    </button>
-
-
-    <footer>
-        © 2026 <span>ECHOREALM</span>
-    </footer>
+    <div class="scroll">
+        DESLIZA PARA DESCUBRIR ↓
+    </div>
 
 </section>
 
 
-<!-- =========================
-     NUESTRA HISTORIA
-========================= -->
 
-<section id="story" class="page story-page">
+<!-- =====================================================
+     DIAPOSITIVA 2 — HISTORIA
+===================================================== -->
 
-    <div class="story-content">
+<section
+    class="history"
+    id="historia"
+>
+
+    <div class="content-box">
+
 
         <div class="section-label">
-            ECHOREALM
-        </div>
-
-        <h1>
             Nuestra historia
-        </h1>
+        </div>
+
+
+        <h2>
+            Donde nació todo.
+        </h2>
+
 
         <p>
-            ECHOREALM comenzó como una idea pequeña,
-            pero con una imaginación enorme.
+
+            <span class="corin-small">
+                C
+            </span>
+
+            Echorealm nació de una pregunta:
+
+            <span class="highlight">
+                ¿y si una marca pudiera sentirse como un mundo?
+            </span>
+
         </p>
+
 
         <p>
-            Un chico de 12 años comenzó a imaginar
-            un universo propio: un espacio donde las
-            ideas pudieran crecer y convertirse en
-            proyectos reales.
+
+            Todo comenzó con la imaginación de un
+            <span class="highlight">
+                chico de 12 años
+            </span>
+            que quería convertir sus ideas en algo real.
+
         </p>
+
 
         <p>
-            Poco a poco, esa idea empezó a tomar forma.
-            Apareció el nombre ECHOREALM, apareció Corín
-            y comenzó la construcción de este pequeño
-            universo digital.
+
+            Al principio no había una gran empresa,
+            un enorme equipo ni una tienda llena de productos.
+
+            Solo había una idea, muchas ganas de aprender
+            y una visión.
+
         </p>
+
 
         <p>
-            Todavía estamos al principio del camino.
-            Y precisamente por eso, lo mejor está por venir.
+
+            Poco a poco apareció el nombre
+            <span class="highlight">
+                ECHOREALM
+            </span>.
+
+            Después apareció Corín, nuestro pequeño
+            símbolo dentro de este universo.
+
         </p>
 
-        <button
-            class="back-button"
-            onclick="mostrarPagina('home')">
 
-            ← Volver al inicio
+        <p>
 
-        </button>
+            La idea nunca fue crear simplemente ropa.
+
+            Queremos crear algo que tenga
+            <span class="highlight">
+                identidad, historia y evolución
+            </span>.
+
+        </p>
+
+
+        <p>
+
+            Y esto es solamente el comienzo.
+
+        </p>
+
 
     </div>
-
-    <footer>
-        © 2026 <span>ECHOREALM</span>
-    </footer>
 
 </section>
 
 
-<!-- =========================
-     INFO
-========================= -->
 
-<section id="info" class="page info-page">
+<!-- =====================================================
+     DIAPOSITIVA 3 — SINGULARIDAD
+===================================================== -->
 
-    <div class="info-content">
+<section
+    class="singularity"
+    id="singularidad"
+>
+
+    <div class="singularity-container">
+
 
         <div class="section-label">
-            INFORMACIÓN
+            Lo que nos hace diferentes
         </div>
 
-        <h1>
-            Sobre ECHOREALM
-        </h1>
 
-        <p>
-            ECHOREALM es un proyecto creativo en crecimiento.
-            Esta página irá evolucionando junto al proyecto.
+        <h2>
+            La singularidad
+            de Echorealm.
+        </h2>
+
+
+        <p class="singularity-intro">
+
+            Echorealm no quiere que una prenda sea
+            simplemente una prenda.
+
+            Queremos construir un universo alrededor
+            de ella.
+
+            Por eso nuestra singularidad no es una sola
+            característica: es un sistema que puede
+            evolucionar con cada colección.
+
         </p>
 
 
-        <div class="info-boxes">
+        <div class="singularity-grid">
 
-            <div class="info-box">
 
-                <div class="big">
-                    ✨
+            <!-- ECOCODE -->
+
+            <div class="singularity-card">
+
+                <div class="singularity-icon">
+                    E
                 </div>
 
                 <h3>
-                    Creatividad
+                    EcoCode
                 </h3>
 
                 <p>
-                    Las ideas son el comienzo de todo.
+
+                    Un código asociado a la experiencia
+                    del producto.
+
+                    Puede permitir rastrear el pedido,
+                    descubrir contenido y acceder a
+                    pequeños detalles relacionados
+                    con la prenda.
+
                 </p>
 
             </div>
 
 
-            <div class="info-box">
+            <!-- POINTS -->
 
-                <div class="big">
-                    🌎
+            <div class="singularity-card">
+
+                <div class="singularity-icon">
+                    +
                 </div>
 
                 <h3>
-                    Nuestro universo
+                    Echorealm Points
                 </h3>
 
                 <p>
-                    Un espacio para crear, imaginar y compartir.
+
+                    Las compras pueden convertirse
+                    en puntos.
+
+                    Con ellos podremos desbloquear
+                    pequeños objetos, accesorios
+                    y recompensas especiales.
+
                 </p>
 
             </div>
 
 
-            <div class="info-box">
+            <!-- MEMBER -->
 
-                <div class="big">
-                    🚀
+            <div class="singularity-card">
+
+                <div class="singularity-icon">
+                    M
                 </div>
 
                 <h3>
-                    El futuro
+                    Member
                 </h3>
 
                 <p>
-                    Nuevos productos y nuevas ideas llegarán
-                    poco a poco.
+
+                    Una comunidad con acceso anticipado,
+                    productos seleccionados, ediciones
+                    especiales y experiencias que no
+                    tienen por qué estar disponibles
+                    para todo el mundo.
+
                 </p>
 
             </div>
+
+
+            <!-- DROPS -->
+
+            <div class="singularity-card">
+
+                <div class="singularity-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Drop Experience
+                </h3>
+
+                <p>
+
+                    Algunas colecciones podrán tener
+                    pequeños detalles propios del
+                    lanzamiento.
+
+                    Un Eco Wave puede tener una sorpresa.
+                    Un Eco Tag puede tener otra.
+
+                    Cada drop puede sentirse diferente.
+
+                </p>
+
+            </div>
+
 
         </div>
 
 
-        <button
-            class="back-button"
-            onclick="mostrarPagina('home')">
-
-            ← Volver al inicio
-
-        </button>
-
     </div>
-
-    <footer>
-        © 2026 <span>ECHOREALM</span>
-    </footer>
 
 </section>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
-<script>
+<!-- =====================================================
+     DIAPOSITIVA 4 — LA EXPERIENCIA
+===================================================== -->
 
-function mostrarPagina(nombre) {
+<section class="experience">
 
-    const paginas = document.querySelectorAll(".page");
-
-    paginas.forEach(function(pagina) {
-
-        pagina.classList.remove("active");
-
-    });
+    <div class="experience-container">
 
 
-    const paginaSeleccionada =
-        document.getElementById(nombre);
-
-    if (paginaSeleccionada) {
-
-        paginaSeleccionada.classList.add("active");
-
-    }
+        <div class="section-label">
+            Más que una prenda
+        </div>
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+        <h2>
+            Cada colección
+            puede contar algo.
+        </h2>
 
-}
 
-</script>
+        <div class="experience-line"></div>
+
+
+        <p>
+
+            Hoy puede ser una sudadera.
+
+            Mañana puede ser una camiseta,
+            un pantalón, una gorra o un accesorio.
+
+        </p>
+
+
+        <p>
+
+            Lo importante no es repetir siempre
+            la misma experiencia.
+
+            Queremos que Echorealm pueda evolucionar
+            y sorprender.
+
+        </p>
+
+
+        <p>
+
+            Por eso mantendremos algunas cosas
+            que representan a la marca y otras
+            podrán cambiar con cada nueva etapa.
+
+        </p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DIAPOSITIVA 5 — EXPLORAR
+===================================================== -->
+
+<section class="final-explore">
+
+    <div class="final-explore-content">
+
+
+        <div class="corin-mark">
+            C
+        </div>
+
+
+        <div class="section-label">
+            Ahora sí
+        </div>
+
+
+        <h2>
+            Explora Echorealm.
+        </h2>
+
+
+        <p>
+
+            Has llegado al final del comienzo.
+
+            Ahora puedes entrar en nuestro universo
+            de productos.
+
+        </p>
+
+
+        <!-- SEGUNDO EXPLORAR -->
+
+        <a
+            href="productos.html"
+            class="explore-button"
+            style="display:inline-block;text-decoration:none;"
+        >
+
+            ✦ EXPLORAR PRODUCTOS
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    ECHO<strong>REALM</strong>
+
+    <br><br>
+
+    El principio de algo nuevo.
+
+</footer>
+
 
 </body>
+
 </html>
