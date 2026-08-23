@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Productos · ECHOREALM</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #29404c;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f3fbff 45%,
+            #f3fff9 100%
+        );
+
+    min-height: 100vh;
+}
+
+/* =========================
+   BARRA SUPERIOR
+========================= */
+
+nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    height: 72px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(80,160,190,0.15);
+}
+
+.logo {
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: #29404c;
+
+    cursor: pointer;
+
+    text-decoration: none;
+}
+
+.logo span {
+
+    color: #70c7e8;
+}
+
+.nav-links {
+
+    display: flex;
+
+    gap: 25px;
+
+    list-style: none;
+}
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #637984;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+.nav-links a:hover {
+
+    color: #4faaca;
+}
+
+
+/* =========================
+   CABECERA
+========================= */
+
+.header {
+
+    text-align: center;
+
+    padding:
+        100px 25px 55px;
+}
+
+.small-title {
+
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #66aeca;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.header h1 {
+
+    font-size:
+        clamp(
+            50px,
+            9vw,
+            95px
+        );
+
+    letter-spacing: -3px;
+
+    color: #29404c;
+
+    margin-bottom: 20px;
+}
+
+.header p {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    color: #71858e;
+
+    line-height: 1.7;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+.search-area {
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 0 25px;
+}
+
+.search-box {
+
+    width: 100%;
+
+    padding:
+        17px 22px;
+
+    border-radius: 50px;
+
+    border:
+        1px solid
+        rgba(90,170,200,0.2);
+
+    background: white;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: #29404c;
+
+    box-shadow:
+        0 10px 35px
+        rgba(80,160,190,0.08);
+}
+
+.search-box:focus {
+
+    border-color: #86d0ea;
+
+    box-shadow:
+        0 10px 40px
+        rgba(80,180,210,0.15);
+}
+
+
+/* =========================
+   FILTROS
+========================= */
+
+.filters {
+
+    max-width: 1000px;
+
+    margin:
+        25px auto 50px;
+
+    padding: 0 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.filter {
+
+    border:
+        1px solid
+        rgba(90,170,200,0.18);
+
+    background: rgba(255,255,255,0.8);
+
+    color: #607984;
+
+    padding:
+        10px 17px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.filter:hover {
+
+    transform:
+        translateY(-2px);
+
+    background: #eafaff;
+
+    color: #428eaa;
+}
+
+.filter.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff5ff,
+            #e7fff3
+        );
+
+    color: #397b94;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   COLECCIONES
+========================= */
+
+.collections {
+
+    max-width: 1100px;
+
+    margin: 0 auto 70px;
+
+    padding: 0 25px;
+}
+
+.collection-title {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.collection-title h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.collection-title p {
+
+    color: #7a8d95;
+}
+
+
+/* =========================
+   PRODUCTOS
+========================= */
+
+.products {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding:
+        0 25px 100px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(240px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.product {
+
+    background: white;
+
+    border:
+        1px solid
+        rgba(90,170,200,0.13);
+
+    border-radius: 28px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 15px 50px
+        rgba(80,160,190,0.07);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.product:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 22px 60px
+        rgba(80,160,190,0.13);
+}
+
+
+/* imagen provisional */
+
+.product-image {
+
+    height: 290px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf9ff,
+            #edfff7
+        );
+
+    color: #7fa4b2;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.product h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.product-description {
+
+    color: #7a8c94;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 15px;
+}
+
+.product-price {
+
+    color: #4388a2;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.product-button {
+
+    width: 100%;
+
+    border: none;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e4f7ff,
+            #e8fff4
+        );
+
+    color: #39758a;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   VOLVER
+========================= */
+
+.back {
+
+    text-align: center;
+
+    padding:
+        0 25px 80px;
+}
+
+.back a {
+
+    display: inline-block;
+
+    padding:
+        13px 25px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    border:
+        1px solid
+        rgba(90,170,200,0.18);
+
+    color: #52717d;
+
+    text-decoration: none;
+
+    transition: 0.25s;
+}
+
+.back a:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #f0fbff;
+}
+
+
+/* =========================
+   PIE
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 35px;
+
+    border-top:
+        1px solid
+        rgba(90,170,200,0.12);
+
+    color: #78909a;
+
+    background: rgba(255,255,255,0.8);
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        padding: 0 18px;
+    }
+
+    .nav-links {
+
+        gap: 10px;
+    }
+
+    .nav-links a {
+
+        font-size: 11px;
+    }
+
+    .logo {
+
+        font-size: 15px;
+
+        letter-spacing: 2px;
+    }
+
+    .header {
+
+        padding-top: 75px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVEGACIÓN
+========================= -->
+
+<nav>
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        ECHO<span>REALM</span>
+
+    </a>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Inicio
+            </a>
+        </li>
+
+        <li>
+            <a href="productos.html">
+                Productos
+            </a>
+        </li>
+
+        <li>
+            <a href="index.html#historia">
+                Nuestra historia
+            </a>
+        </li>
+
+        <li>
+            <a href="index.html">
+                Info
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =========================
+     CABECERA
+========================= -->
+
+<header class="header">
+
+    <div class="small-title">
+        ECHOREALM STORE
+    </div>
+
+    <h1>
+        Productos
+    </h1>
+
+    <p>
+
+        Descubre las prendas y colecciones
+        que forman parte del universo Echorealm.
+
+        <br>
+
+        Esto es solo el principio.
+
+    </p>
+
+</header>
+
+
+
+<!-- =========================
+     BUSCADOR
+========================= -->
+
+<div class="search-area">
+
+    <input
+        class="search-box"
+        type="text"
+        id="buscador"
+        placeholder="🔎  Buscar productos..."
+        onkeyup="buscarProducto()"
+    >
+
+</div>
+
+
+
+<!-- =========================
+     FILTROS
+========================= -->
+
+<div class="filters">
+
+    <button
+        class="filter active"
+        onclick="filtrar('todos', this)"
+    >
+        Todos
+    </button>
+
+    <button
+        class="filter"
+        onclick="filtrar('sudaderas', this)"
+    >
+        Sudaderas
+    </button>
+
+    <button
+        class="filter"
+        onclick="filtrar('camisetas', this)"
+    >
+        Camisetas
+    </button>
+
+    <button
+        class="filter"
+        onclick="filtrar('pantalones', this)"
+    >
+        Pantalones
+    </button>
+
+    <button
+        class="filter"
+        onclick="filtrar('gorras', this)"
+    >
+        Gorras
+    </button>
+
+    <button
+        class="filter"
+        onclick="filtrar('accesorios', this)"
+    >
+        Accesorios
+    </button>
+
+</div>
+
+
+
+<!-- =========================
+     COLECCIONES
+========================= -->
+
+<section class="collections">
+
+    <div class="collection-title">
+
+        <h2>
+            Colecciones
+        </h2>
+
+        <p>
+            Explora el universo Echorealm.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTOS
+========================= -->
+
+<section
+    class="products"
+    id="lista-productos"
+>
+
+
+    <!-- PRODUCTO 1 -->
+
+    <article
+        class="product"
+        data-category="sudaderas"
+    >
+
+        <div class="product-image">
+
+            ECHOREALM
+
+        </div>
+
+        <h3>
+            Echo Hoodie
+        </h3>
+
+        <p class="product-description">
+
+            Sudadera Echorealm.
+
+            Próximamente con su diseño
+            definitivo.
+
+        </p>
+
+        <div class="product-price">
+
+            Próximamente
+
+        </div>
+
+        <button class="product-button">
+
+            Ver producto
+
+        </button>
+
+    </article>
+
+
+
+    <!-- PRODUCTO 2 -->
+
+    <article
+        class="product"
+        data-category="camisetas"
+    >
+
+        <div class="product-image">
+
+            ECHOREALM
+
+        </div>
+
+        <h3>
+            Echo Tee
+        </h3>
+
+        <p class="product-description">
+
+            Camiseta Echorealm.
+
+            Próximamente.
+
+        </p>
+
+        <div class="product-price">
+
+            Próximamente
+
+        </div>
+
+        <button class="product-button">
+
+            Ver producto
+
+        </button>
+
+    </article>
+
+
+
+    <!-- PRODUCTO 3 -->
+
+    <article
+        class="product"
+        data-category="pantalones"
+    >
+
+        <div class="product-image">
+
+            ECHOREALM
+
+        </div>
+
+        <h3>
+            Echo Pants
+        </h3>
+
+        <p class="product-description">
+
+            Pantalones Echorealm.
+
+            Próximamente.
+
+        </p>
+
+        <div class="product-price">
+
+            Próximamente
+
+        </div>
+
+        <button class="product-button">
+
+            Ver producto
+
+        </button>
+
+    </article>
+
+
+
+    <!-- PRODUCTO 4 -->
+
+    <article
+        class="product"
+        data-category="gorras"
+    >
+
+        <div class="product-image">
+
+            ECHOREALM
+
+        </div>
+
+        <h3>
+            Echo Cap
+        </h3>
+
+        <p class="product-description">
+
+            Gorra Echorealm.
+
+            Próximamente.
+
+        </p>
+
+        <div class="product-price">
+
+            Próximamente
+
+        </div>
+
+        <button class="product-button">
+
+            Ver producto
+
+        </button>
+
+    </article>
+
+
+
+    <!-- PRODUCTO 5 -->
+
+    <article
+        class="product"
+        data-category="accesorios"
+    >
+
+        <div class="product-image">
+
+            ECHO
+
+        </div>
+
+        <h3>
+            Echo Tag
+        </h3>
+
+        <p class="product-description">
+
+            Accesorio especial de Echorealm.
+
+        </p>
+
+        <div class="product-price">
+
+            Próximamente
+
+        </div>
+
+        <button class="product-button">
+
+            Ver producto
+
+        </button>
+
+    </article>
+
+
+</section>
+
+
+
+<!-- =========================
+     VOLVER
+========================= -->
+
+<div class="back">
+
+    <a href="index.html">
+
+        ← Volver a Echorealm
+
+    </a>
+
+</div>
+
+
+
+<footer>
+
+    ECHOREALM
+
+    <br><br>
+
+    El principio de algo nuevo.
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   FILTROS
+========================= */
+
+function filtrar(categoria, boton) {
+
+
+    const productos =
+        document.querySelectorAll(".product");
+
+
+    const botones =
+        document.querySelectorAll(".filter");
+
+
+    botones.forEach(function(b) {
+
+        b.classList.remove("active");
+
+    });
+
+
+    boton.classList.add("active");
+
+
+    productos.forEach(function(producto) {
+
+
+        if (
+            categoria === "todos" ||
+            producto.dataset.category === categoria
+        ) {
+
+            producto.style.display = "block";
+
+        } else {
+
+            producto.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+/* =========================
+   BUSCADOR
+========================= */
+
+function buscarProducto() {
+
+
+    const texto =
+        document
+        .getElementById("buscador")
+        .value
+        .toLowerCase();
+
+
+    const productos =
+        document.querySelectorAll(".product");
+
+
+    productos.forEach(function(producto) {
+
+
+        const nombre =
+            producto
+            .querySelector("h3")
+            .textContent
+            .toLowerCase();
+
+
+        if (nombre.includes(texto)) {
+
+            producto.style.display = "block";
+
+        } else {
+
+            producto.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
