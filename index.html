@@ -1,136 +1,250 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Echorealm</title>
+<title>Echorealm</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b0b0b;
-            color: white;
-            text-align: center;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-        header {
-            padding: 25px;
-            border-bottom: 1px solid #222;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-            letter-spacing: 4px;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background: #0b0b0f;
+        color: white;
+    }
 
-        main {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-        }
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(11,11,15,0.95);
+        border-bottom: 1px solid #25252d;
+        padding: 18px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
+    .logo {
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 3px;
+    }
 
-        p {
-            color: #aaa;
-            font-size: 18px;
-            max-width: 500px;
-        }
+    nav {
+        display: flex;
+        gap: 10px;
+    }
 
-        .boton {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 30px;
-            background: white;
-            color: black;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    nav button {
+        background: transparent;
+        color: white;
+        border: 1px solid #33333d;
+        padding: 10px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 
-        .productos {
-            min-height: 60vh;
-            padding: 80px 30px;
-            border-top: 1px solid #222;
-        }
+    nav button:hover {
+        background: #25252d;
+    }
 
-        .productos h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+    .hero {
+        min-height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+    }
 
-        .producto-prueba {
-            margin: 40px auto;
-            max-width: 400px;
-            padding: 30px;
-            border: 1px solid #333;
-            border-radius: 12px;
-        }
+    .hero h1 {
+        font-size: clamp(45px, 9vw, 90px);
+        letter-spacing: 8px;
+        margin-bottom: 20px;
+    }
 
-        .producto-prueba p {
-            margin: 10px auto;
-        }
+    .hero p {
+        max-width: 650px;
+        color: #b7b7c0;
+        font-size: 19px;
+        line-height: 1.6;
+        margin-bottom: 35px;
+    }
 
-        footer {
-            padding: 20px;
-            color: #666;
-            border-top: 1px solid #222;
-        }
-    </style>
+    .explore {
+        border: none;
+        background: white;
+        color: #0b0b0f;
+        padding: 16px 32px;
+        border-radius: 14px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .explore:hover {
+        transform: scale(1.04);
+    }
+
+    section {
+        padding: 80px 25px;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    section h2 {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        color: #9999a5;
+        margin-bottom: 35px;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: #15151c;
+        border: 1px solid #292932;
+        border-radius: 18px;
+        padding: 25px;
+        min-height: 190px;
+    }
+
+    .card h3 {
+        margin-bottom: 12px;
+        font-size: 21px;
+    }
+
+    .card p {
+        color: #a5a5af;
+        line-height: 1.5;
+    }
+
+    .tag {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        background: #25252d;
+        color: #ddd;
+        font-size: 13px;
+    }
+
+    footer {
+        border-top: 1px solid #25252d;
+        padding: 30px;
+        text-align: center;
+        color: #777783;
+    }
+</style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">ECHOREALM</div>
-    </header>
+<header>
+    <div class="logo">ECHOREALM</div>
 
-    <main>
-        <h1>Bienvenido a Echorealm</h1>
+    <nav>
+        <button onclick="irAInicio()">Inicio</button>
+        <button onclick="explorar()">Explorar</button>
+    </nav>
+</header>
 
-        <p>
-            Ropa, identidad y una nueva forma de vivir la marca.
-        </p>
+<main>
 
-        <a href="#productos" class="boton">
-            EXPLORAR
-        </a>
-    </main>
-
-    <section id="productos" class="productos">
-
-        <h2>Productos</h2>
+    <section id="inicio" class="hero">
+        <h1>ECHOREALM</h1>
 
         <p>
-            Descubre próximamente las prendas de Echorealm.
+            Descubre nuevas ideas, productos y herramientas
+            dentro de un espacio creado para explorar.
         </p>
 
-        <div class="producto-prueba">
-
-            <h3>Próximamente</h3>
-
-            <p>
-                Nuestra primera colección llegará aquí.
-            </p>
-
-        </div>
-
+        <button class="explore" onclick="explorar()">
+            Explorar
+        </button>
     </section>
 
-    <footer>
-        © 2026 Echorealm
-    </footer>
+
+    <section id="explorar">
+        <h2>Explorar</h2>
+
+        <p class="subtitle">
+            Descubre lo que hay dentro de Echorealm.
+        </p>
+
+        <div class="products">
+
+            <div class="card">
+                <h3>Productos</h3>
+                <p>
+                    Descubre productos y cosas interesantes
+                    que puedan formar parte de Echorealm.
+                </p>
+                <span class="tag">Productos</span>
+            </div>
+
+            <div class="card">
+                <h3>Herramientas</h3>
+                <p>
+                    Encuentra herramientas y recursos útiles
+                    para diferentes proyectos.
+                </p>
+                <span class="tag">Herramientas</span>
+            </div>
+
+            <div class="card">
+                <h3>Descubrir</h3>
+                <p>
+                    Explora nuevas ideas y contenido que iremos
+                    incorporando poco a poco.
+                </p>
+                <span class="tag">Descubrir</span>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    © 2026 Echorealm
+</footer>
+
+
+<script>
+
+function explorar() {
+    document.getElementById("explorar").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function irAInicio() {
+    document.getElementById("inicio").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+</script>
 
 </body>
-
 </html>
