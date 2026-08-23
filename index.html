@@ -1,331 +1,1266 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Echorealm</title>
 
+<meta
+    name="description"
+    content="Echorealm — un universo creado para descubrir algo diferente."
+>
+
 <style>
 
+/* =========================================================
+   ECHOREALM
+   ESTILO GENERAL
+========================================================= */
+
+:root {
+
+    --blanco: #ffffff;
+    --blanco-suave: #f8fbff;
+    --azul: #b9e7ff;
+    --azul-fuerte: #73c9f5;
+    --verde: #c8f3df;
+    --verde-fuerte: #8eddb7;
+    --azul-texto: #397a9c;
+    --texto: #274454;
+    --texto-suave: #6e8794;
+    --borde: rgba(90, 170, 200, 0.18);
+
+}
+
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 html {
+
     scroll-behavior: smooth;
+
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #050509;
-    color: white;
-    overflow-x: hidden;
-}
 
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-/* =========================
-   PORTADA
-========================= */
-
-.hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
+    color: var(--texto);
 
     background:
-        radial-gradient(circle at 50% 35%, #34205f 0%, transparent 35%),
-        radial-gradient(circle at 20% 80%, #102f55 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, #4b174d 0%, transparent 30%),
-        #050509;
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f5fbff 35%,
+            #f5fffa 70%,
+            #ffffff 100%
+        );
+
+    overflow-x: hidden;
+
 }
 
 
-/* Luces decorativas */
+/* =========================================================
+   FONDO DECORATIVO
+========================================================= */
 
-.hero::before {
+body::before {
+
     content: "";
-    position: absolute;
+
+    position: fixed;
+
     width: 500px;
     height: 500px;
-    background: #8b5cf6;
-    filter: blur(180px);
-    opacity: 0.18;
-    border-radius: 50%;
-    top: -200px;
+
+    top: -180px;
     left: -150px;
+
+    background: var(--azul);
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    opacity: 0.35;
+
+    pointer-events: none;
+
+    z-index: -1;
+
 }
 
-.hero::after {
+body::after {
+
     content: "";
-    position: absolute;
+
+    position: fixed;
+
     width: 450px;
     height: 450px;
-    background: #00b7ff;
-    filter: blur(180px);
-    opacity: 0.14;
+
+    right: -150px;
+    bottom: -150px;
+
+    background: var(--verde);
+
     border-radius: 50%;
-    bottom: -200px;
-    right: -120px;
+
+    filter: blur(120px);
+
+    opacity: 0.4;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+   FUTURA NAVEGACIÓN
+========================================================= */
+
+.topbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 18px 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 100;
+
+    background:
+        rgba(255,255,255,0.72);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    border-bottom:
+        1px solid var(--borde);
+
+}
+
+
+/* LOGO */
+
+.brand {
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    color: var(--texto);
+
+}
+
+
+/* FUTURAS PESTAÑAS */
+
+.future-navigation {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+.future-navigation button {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--texto-suave);
+
+    padding: 9px 13px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+}
+
+.future-navigation button:hover {
+
+    background:
+        rgba(150,220,240,0.15);
+
+    color: var(--texto);
+
+}
+
+
+/* =========================================================
+   PORTADA
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        120px 25px 80px;
+
+    overflow: hidden;
+
+}
+
+
+/* Círculo decorativo */
+
+.hero-orb {
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(170,230,255,0.45),
+            rgba(200,245,225,0.2),
+            transparent 70%
+        );
+
+    filter: blur(15px);
+
+    animation:
+        flotar 8s ease-in-out infinite;
+
+}
+
+@keyframes flotar {
+
+    0% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            scale(1.04);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
 }
 
 
 /* Contenido */
 
 .hero-content {
+
     position: relative;
+
     z-index: 2;
-    padding: 30px;
+
+    max-width: 900px;
+
 }
 
-.small-title {
-    font-size: 14px;
-    letter-spacing: 6px;
-    color: #aaa5c8;
-    margin-bottom: 25px;
+
+/* pequeño texto */
+
+.welcome {
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
     text-transform: uppercase;
-}
 
-.logo {
-    font-size: clamp(55px, 12vw, 125px);
-    font-weight: 800;
-    letter-spacing: 10px;
+    color: var(--azul-texto);
+
     margin-bottom: 25px;
 
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #b79cff,
-        #7ddcff,
-        #ffffff
-    );
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow:
-        0 0 35px rgba(150,100,255,0.25);
 }
 
-.tagline {
+
+/* LOGO GRANDE */
+
+.hero-logo {
+
+    font-size:
+        clamp(
+            55px,
+            12vw,
+            125px
+        );
+
+    font-weight: 800;
+
+    letter-spacing:
+        clamp(
+            5px,
+            2vw,
+            14px
+        );
+
+    color: var(--texto);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* línea decorativa */
+
+.logo-line {
+
+    width: 90px;
+
+    height: 4px;
+
+    margin:
+        0 auto 30px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--azul-fuerte),
+            var(--verde-fuerte)
+        );
+
+}
+
+
+/* frase */
+
+.hero-text {
+
     max-width: 650px;
+
     margin: auto;
-    color: #c6c4d2;
-    font-size: clamp(18px, 3vw, 25px);
-    line-height: 1.6;
+
+    font-size:
+        clamp(
+            18px,
+            3vw,
+            25px
+        );
+
+    line-height: 1.7;
+
+    color: var(--texto-suave);
+
 }
 
-.start-button {
+
+/* =========================================================
+   BOTÓN EXPLORAR
+========================================================= */
+
+.explore-button {
+
     margin-top: 45px;
-    padding: 17px 32px;
+
+    padding:
+        17px 34px;
+
+    border:
+        1px solid
+        rgba(80,160,190,0.25);
+
     border-radius: 50px;
-    border: 1px solid rgba(255,255,255,0.3);
 
-    background: rgba(255,255,255,0.08);
-    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #effaff
+        );
 
-    font-size: 16px;
-    font-weight: bold;
+    color: var(--texto);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
     letter-spacing: 2px;
 
     cursor: pointer;
 
-    backdrop-filter: blur(15px);
+    box-shadow:
+        0 10px 35px
+        rgba(90,180,210,0.15);
 
-    transition: 0.3s;
+    transition:
+        0.3s ease;
+
 }
 
-.start-button:hover {
-    background: white;
-    color: #08080d;
-    transform: translateY(-4px);
+.explore-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(90,180,210,0.25);
+
 }
 
 
-/* Indicador de scroll */
+/* =========================================================
+   INDICADOR DE SCROLL
+========================================================= */
 
-.scroll {
+.scroll-indicator {
+
     position: absolute;
-    bottom: 25px;
-    z-index: 2;
 
-    color: #858392;
-    font-size: 13px;
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    color: var(--texto-suave);
+
+    font-size: 11px;
+
     letter-spacing: 3px;
 
-    animation: subirBajar 2s infinite;
+    animation:
+        subirBajar 2s infinite;
+
 }
 
 @keyframes subirBajar {
 
-    0%, 100% {
-        transform: translateY(0);
+    0%,100% {
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+
     }
 
     50% {
-        transform: translateY(8px);
+
+        transform:
+            translateX(-50%)
+            translateY(8px);
+
     }
 
 }
 
 
-/* =========================
-   NUESTRA HISTORIA
-========================= */
+/* =========================================================
+   SECCIÓN HISTORIA
+========================================================= */
 
 .story {
+
     min-height: 100vh;
-    padding: 120px 25px;
+
+    padding:
+        130px 25px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     background:
-        radial-gradient(
-            circle at 50% 0%,
-            #21163a,
-            transparent 45%
-        ),
-        #08080d;
+        linear-gradient(
+            180deg,
+            #f5fbff,
+            #f2fff9
+        );
+
 }
 
-.story-container {
+
+/* tarjeta */
+
+.story-card {
+
     max-width: 900px;
+
+    padding:
+        clamp(
+            30px,
+            6vw,
+            75px
+        );
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 35px;
+
+    background:
+        rgba(255,255,255,0.72);
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 25px 80px
+        rgba(90,170,190,0.10);
+
 }
 
-.story-label {
-    color: #9d83ff;
-    font-size: 14px;
+
+/* etiqueta */
+
+.section-label {
+
+    color: var(--azul-texto);
+
+    font-size: 12px;
+
     letter-spacing: 5px;
+
     text-transform: uppercase;
+
     margin-bottom: 20px;
+
 }
+
+
+/* título */
 
 .story h2 {
-    font-size: clamp(42px, 8vw, 75px);
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            75px
+        );
+
+    line-height: 1.05;
+
     margin-bottom: 35px;
+
+    color: var(--texto);
+
 }
+
+
+/* texto */
 
 .story p {
-    color: #b7b5c2;
-    font-size: 20px;
+
+    font-size: 19px;
+
     line-height: 1.9;
-    margin-bottom: 25px;
+
+    color: var(--texto-suave);
+
+    margin-bottom: 24px;
+
 }
+
+
+/* palabras importantes */
 
 .highlight {
-    color: white;
+
+    color: var(--azul-texto);
+
+    font-weight: 700;
+
 }
 
 
-/* =========================
+/* =========================================================
+   SEGUNDA PARTE DE HISTORIA
+   NO PRODUCTOS
+========================================================= */
+
+.values {
+
+    min-height: 90vh;
+
+    padding:
+        120px 25px;
+
+    background:
+        #ffffff;
+
+}
+
+
+.values-container {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+.values h2 {
+
+    font-size:
+        clamp(
+            40px,
+            7vw,
+            70px
+        );
+
+    margin-bottom: 20px;
+
+}
+
+
+.values-subtitle {
+
+    color: var(--texto-suave);
+
+    max-width: 600px;
+
+    margin:
+        0 auto 50px;
+
+    line-height: 1.7;
+
+}
+
+
+/* tarjetas */
+
+.values-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+.value {
+
+    padding: 30px;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f4fbff
+        );
+
+}
+
+
+.value-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul),
+            var(--verde)
+        );
+
+    color: white;
+
+    font-size: 22px;
+
+}
+
+
+.value h3 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.value p {
+
+    color: var(--texto-suave);
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   ZONA BLOQUEADA
+========================================================= */
+
+.locked-area {
+
+    min-height: 70vh;
+
+    padding:
+        120px 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4fffa,
+            #ffffff
+        );
+
+}
+
+
+.locked-content {
+
+    max-width: 600px;
+
+}
+
+
+.lock-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin:
+        0 auto 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--azul),
+            var(--verde)
+        );
+
+    font-size: 27px;
+
+}
+
+
+.locked-content h2 {
+
+    font-size: 40px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.locked-content p {
+
+    color: var(--texto-suave);
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   PRODUCTOS
+   OCULTO HASTA PULSAR EXPLORAR
+========================================================= */
+
+#productos {
+
+    display: none;
+
+    min-height: 100vh;
+
+    padding:
+        130px 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f1fbff,
+            #f2fff8
+        );
+
+}
+
+
+.products-container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+}
+
+
+.products-header {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+
+.products-header h2 {
+
+    font-size:
+        clamp(
+            45px,
+            8vw,
+            80px
+        );
+
+}
+
+
+.products-header p {
+
+    color: var(--texto-suave);
+
+    margin-top: 15px;
+
+}
+
+
+.product-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 25px;
+
+}
+
+
+.product-card {
+
+    background: white;
+
+    border:
+        1px solid var(--borde);
+
+    border-radius: 28px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 15px 50px
+        rgba(80,160,190,0.08);
+
+}
+
+
+.product-image {
+
+    height: 300px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edfaff,
+            #effff6
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    color: #8aa6b3;
+
+}
+
+
+.product-card h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.product-price {
+
+    color: var(--azul-texto);
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+
+.product-button {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        #e9f8ff;
+
+    color: var(--texto);
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
    PIE
-========================= */
+========================================================= */
 
 footer {
-    padding: 30px;
+
+    padding:
+        35px 20px;
+
     text-align: center;
-    color: #65636e;
-    background: #050509;
+
+    background: white;
+
+    border-top:
+        1px solid var(--borde);
+
+    color: var(--texto-suave);
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .future-navigation {
+
+        display: none;
+
+    }
+
+    .topbar {
+
+        justify-content: center;
+
+    }
+
+    .hero {
+
+        padding-top: 100px;
+
+    }
+
+    .story-card {
+
+        border-radius: 25px;
+
+    }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================
-     PRIMERA PANTALLA
-========================= -->
+<!-- =====================================================
+     BARRA SUPERIOR
+===================================================== -->
 
-<section class="hero" id="inicio">
+<header class="topbar">
+
+    <div class="brand">
+        ECHOREALM
+    </div>
+
+
+    <!--
+        ESTAS PESTAÑAS SON FUTURAS.
+        TODAVÍA NO ABREN PRODUCTOS.
+    -->
+
+    <nav class="future-navigation">
+
+        <button>
+            Productos
+        </button>
+
+        <button
+            onclick="irHistoria()"
+        >
+            Nuestra historia
+        </button>
+
+        <button>
+            Info
+        </button>
+
+        <button>
+            Members
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+    <div class="hero-orb"></div>
+
 
     <div class="hero-content">
 
-        <div class="small-title">
+        <div class="welcome">
             Bienvenido a
         </div>
 
-        <h1 class="logo">
+
+        <h1 class="hero-logo">
             ECHOREALM
         </h1>
 
-        <p class="tagline">
-            Un lugar para descubrir lo que aún no conoces.
+
+        <div class="logo-line"></div>
+
+
+        <p class="hero-text">
+
+            Un lugar donde las ideas,
+            la ropa y la identidad
+            encuentran su propio mundo.
+
         </p>
 
+
         <button
-            class="start-button"
-            onclick="irHistoria()"
+            class="explore-button"
+            onclick="abrirExplorar()"
         >
-            COMENZAR A EXPLORAR ↓
+
+            EXPLORAR
+
         </button>
 
     </div>
 
-    <div class="scroll">
-        DESLIZA PARA DESCUBRIR
+
+    <div class="scroll-indicator">
+
+        DESLIZA PARA DESCUBRIR ↓
+
     </div>
 
 </section>
 
 
-<!-- =========================
-     NUESTRA HISTORIA
-========================= -->
 
-<section class="story" id="historia">
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
 
-    <div class="story-container">
+<section
+    class="story"
+    id="historia"
+>
 
-        <div class="story-label">
+    <div class="story-card">
+
+        <div class="section-label">
+
             Nuestra historia
+
         </div>
 
+
         <h2>
-            Todo empezó con una idea.
+
+            Todo empezó
+            con una idea.
+
         </h2>
 
-        <p>
-            Echorealm nació de una idea sencilla:
-            crear un lugar diferente en Internet.
-        </p>
 
         <p>
-            Esta historia comenzó cuando un chico de
-            <span class="highlight">12 años</span>,
-            con curiosidad por la tecnología y muchas ideas
-            en la cabeza, decidió intentar construir algo
-            que fuera mucho más que una simple página web.
-        </p>
 
-        <p>
-            Al principio solo existía una pregunta:
+            Echorealm nació de una pregunta:
+
             <span class="highlight">
-                «¿Y si pudiera crear mi propio mundo?»
+                ¿y si una marca pudiera sentirse como un mundo?
             </span>
+
         </p>
 
-        <p>
-            De esa pregunta nació
-            <span class="highlight">Echorealm</span>.
-            Un proyecto que poco a poco irá creciendo,
-            cambiando y convirtiéndose en algo mucho más grande.
-        </p>
 
         <p>
+
+            El proyecto comenzó cuando un chico de
+            <span class="highlight">
+                12 años
+            </span>
+            decidió convertir sus ideas en algo real.
+
+        </p>
+
+
+        <p>
+
+            Al principio no había una gran empresa,
+            ni un enorme equipo, ni una fábrica.
+
+            Solo había imaginación,
+            ganas de aprender
+            y muchas ideas.
+
+        </p>
+
+
+        <p>
+
+            Poco a poco nació Echorealm:
+
+            <span class="highlight">
+                una marca creada para que cada persona
+                pueda formar parte de algo.
+            </span>
+
+        </p>
+
+
+        <p>
+
             Y esto...
-            <span class="highlight">es solo el principio.</span>
+
+            <span class="highlight">
+                solo es el principio.
+            </span>
+
         </p>
 
     </div>
@@ -333,22 +1268,309 @@ footer {
 </section>
 
 
+
+<!-- =====================================================
+     VALORES
+===================================================== -->
+
+<section class="values">
+
+    <div class="values-container">
+
+        <div class="section-label">
+            El universo Echorealm
+        </div>
+
+
+        <h2>
+            Más que ropa.
+        </h2>
+
+
+        <p class="values-subtitle">
+
+            Echorealm busca crear una experiencia
+            que vaya más allá de una simple prenda.
+
+        </p>
+
+
+        <div class="values-grid">
+
+
+            <div class="value">
+
+                <div class="value-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Identidad
+                </h3>
+
+                <p>
+                    Crear algo que puedas sentir
+                    como tuyo.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-icon">
+                    ◌
+                </div>
+
+                <h3>
+                    Evolución
+                </h3>
+
+                <p>
+                    La marca cambia,
+                    aprende y evoluciona contigo.
+                </p>
+
+            </div>
+
+
+            <div class="value">
+
+                <div class="value-icon">
+                    ∞
+                </div>
+
+                <h3>
+                    Exploración
+                </h3>
+
+                <p>
+                    Siempre queda algo nuevo
+                    por descubrir.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ZONA BLOQUEADA
+===================================================== -->
+
+<section class="locked-area">
+
+    <div class="locked-content">
+
+        <div class="lock-icon">
+            ✦
+        </div>
+
+
+        <h2>
+            Hay algo más.
+        </h2>
+
+
+        <p>
+
+            El universo de Echorealm
+            todavía no está completamente abierto.
+
+            <br><br>
+
+            Para descubrirlo,
+            tendrás que pulsar
+            <strong>EXPLORAR</strong>.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTOS
+     NO SE MUESTRAN AL HACER SCROLL
+     SOLO DESPUÉS DE PULSAR EXPLORAR
+===================================================== -->
+
+<section
+    id="productos"
+>
+
+    <div class="products-container">
+
+
+        <div class="products-header">
+
+            <div class="section-label">
+                Echorealm Store
+            </div>
+
+
+            <h2>
+                Productos
+            </h2>
+
+
+            <p>
+                Bienvenido al universo Echorealm.
+            </p>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    PRÓXIMAMENTE
+                </div>
+
+                <h3>
+                    Echo Hoodie
+                </h3>
+
+                <div class="product-price">
+                    Próximamente
+                </div>
+
+                <button class="product-button">
+                    Ver producto
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    PRÓXIMAMENTE
+                </div>
+
+                <h3>
+                    Echo Tee
+                </h3>
+
+                <div class="product-price">
+                    Próximamente
+                </div>
+
+                <button class="product-button">
+                    Ver producto
+                </button>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    PRÓXIMAMENTE
+                </div>
+
+                <h3>
+                    Echo Pants
+                </h3>
+
+                <div class="product-price">
+                    Próximamente
+                </div>
+
+                <button class="product-button">
+                    Ver producto
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PIE
+===================================================== -->
+
 <footer>
-    ECHOREALM · El principio de algo nuevo
+
+    ECHOREALM
+
+    <br><br>
+
+    El principio de algo nuevo.
+
 </footer>
+
 
 
 <script>
 
+/* =========================================================
+   IR A HISTORIA
+========================================================= */
+
 function irHistoria() {
 
-    document.getElementById("historia").scrollIntoView({
-        behavior: "smooth"
-    });
+    document
+        .getElementById("historia")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =========================================================
+   EXPLORAR
+========================================================= */
+
+function abrirExplorar() {
+
+    const productos =
+        document.getElementById("productos");
+
+
+    /*
+        Primero mostramos productos.
+    */
+
+    productos.style.display = "block";
+
+
+    /*
+        Después llevamos al usuario
+        a la sección de productos.
+    */
+
+    setTimeout(function() {
+
+        productos.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 100);
 
 }
 
 </script>
 
+
 </body>
+
 </html>
