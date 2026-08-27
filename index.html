@@ -3,1247 +3,1188 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>ECHOREALM · Bienvenido</title>
+    <title>ECHOREALM — Inicio</title>
 
-<meta
-    name="description"
-    content="Echorealm — un universo creado para convertir ideas en algo real."
->
+    <meta
+        name="description"
+        content="ECHOREALM. Ropa, movimiento, música e identidad."
+    >
 
-<style>
+    <style>
 
-/* =========================================================
-   ECHOREALM
-   PALETA OFICIAL
-========================================================= */
+        /* ==================================================
+           ECHOREALM — ESTILOS PRINCIPALES
+           
+           IMPORTANTE:
+           Aquí NO hay productos.
+           Los productos están en productos.html
+        ================================================== */
 
-:root {
 
-    --blanco: #ffffff;
-    --blanco-suave: #f7fcff;
+        /* ==================================================
+           COLORES
+        ================================================== */
 
-    --azul-claro: #dff5ff;
-    --azul-muy-claro: #eefaff;
-    --azul: #9ddcf3;
-    --azul-fuerte: #54afd2;
+        :root {
 
-    --verde-claro: #e2f9ee;
-    --verde-muy-claro: #f1fcf7;
-    --verde: #a8e4c5;
-    --verde-fuerte: #6fc99c;
+            --blanco: #ffffff;
 
-    --texto: #29434f;
-    --texto-suave: #6d828c;
+            --blanco-suave: #f8fcfd;
 
-    --borde: rgba(80, 170, 200, 0.16);
+            --azul-muy-claro: #e8f7fc;
 
-}
+            --azul-claro: #c8edf7;
 
+            --azul: #82cde3;
 
-/* =========================================================
-   RESET
-========================================================= */
+            --azul-fuerte: #429bb9;
 
-* {
+            --verde-claro: #e4f8ee;
 
-    margin: 0;
-    padding: 0;
+            --verde: #a9dfc2;
 
-    box-sizing: border-box;
+            --texto: #243f4b;
 
-}
+            --texto-suave: #6f858e;
 
-html {
+            --borde: rgba(66, 155, 185, 0.16);
 
-    scroll-behavior: smooth;
+            --sombra:
+                0 20px 60px rgba(52, 130, 155, 0.09);
 
-}
+        }
 
-body {
 
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif;
+        /* ==================================================
+           RESET
+        ================================================== */
 
-    color: var(--texto);
+        * {
 
-    background: var(--blanco);
+            margin: 0;
 
-    overflow-x: hidden;
+            padding: 0;
 
-}
+            box-sizing: border-box;
 
+        }
 
-/* =========================================================
-   FONDOS DECORATIVOS
-========================================================= */
 
-body::before {
+        html {
 
-    content: "";
+            scroll-behavior: smooth;
 
-    position: fixed;
+        }
 
-    width: 500px;
-    height: 500px;
 
-    top: -220px;
-    left: -180px;
+        body {
 
-    border-radius: 50%;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(157,220,243,0.32),
-            transparent 70%
-        );
+            color: var(--texto);
 
-    filter: blur(20px);
+            background: var(--blanco);
 
-    pointer-events: none;
+            overflow-x: hidden;
 
-    z-index: -1;
+        }
 
-}
 
+        a {
 
-body::after {
+            color: inherit;
 
-    content: "";
+        }
 
-    position: fixed;
 
-    width: 500px;
-    height: 500px;
+        /* ==================================================
+           FONDO DECORATIVO
+        ================================================== */
 
-    right: -220px;
-    bottom: -220px;
+        body::before {
 
-    border-radius: 50%;
+            content: "";
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(168,228,197,0.28),
-            transparent 70%
-        );
+            position: fixed;
 
-    filter: blur(20px);
+            width: 450px;
 
-    pointer-events: none;
+            height: 450px;
 
-    z-index: -1;
+            top: -220px;
 
-}
+            left: -180px;
 
+            border-radius: 50%;
 
-/* =========================================================
-   BARRA SUPERIOR
-========================================================= */
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(200,237,247,0.65),
+                    transparent 70%
+                );
 
-nav {
+            pointer-events: none;
 
-    position: fixed;
+            z-index: -1;
 
-    top: 0;
-    left: 0;
+        }
 
-    width: 100%;
 
-    height: 72px;
+        body::after {
 
-    padding:
-        0 6%;
+            content: "";
 
-    display: flex;
+            position: fixed;
 
-    align-items: center;
+            width: 450px;
 
-    justify-content: space-between;
+            height: 450px;
 
-    z-index: 1000;
+            right: -220px;
 
-    background:
-        rgba(255,255,255,0.80);
+            bottom: -220px;
 
-    backdrop-filter:
-        blur(20px);
+            border-radius: 50%;
 
-    -webkit-backdrop-filter:
-        blur(20px);
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(228,248,238,0.65),
+                    transparent 70%
+                );
 
-    border-bottom:
-        1px solid var(--borde);
+            pointer-events: none;
 
-}
+            z-index: -1;
 
+        }
 
-/* =========================================================
-   LOGO
-========================================================= */
 
-.logo {
+        /* ==================================================
+           BARRA DE NAVEGACIÓN
+        ================================================== */
 
-    text-decoration: none;
+        .navbar {
 
-    color: var(--texto);
+            position: fixed;
 
-    font-size: 20px;
+            top: 0;
 
-    font-weight: 800;
+            left: 0;
 
-    letter-spacing: 4px;
+            width: 100%;
 
-    cursor: pointer;
+            height: 74px;
 
-}
+            padding:
+                0 6%;
 
-.logo span {
+            display: flex;
 
-    color: var(--azul-fuerte);
+            align-items: center;
 
-}
+            justify-content: space-between;
 
+            background:
+                rgba(255,255,255,0.88);
 
-/* =========================================================
-   NAVEGACIÓN
-========================================================= */
+            backdrop-filter:
+                blur(18px);
 
-.nav-links {
+            -webkit-backdrop-filter:
+                blur(18px);
 
-    display: flex;
+            border-bottom:
+                1px solid var(--borde);
 
-    align-items: center;
+            z-index: 999;
 
-    gap: 25px;
+        }
 
-    list-style: none;
 
-}
+        /* ==================================================
+           NOMBRE DE LA MARCA
+        ================================================== */
 
-.nav-links a {
+        .brand {
 
-    text-decoration: none;
+            text-decoration: none;
 
-    color: var(--texto-suave);
+            font-size: 20px;
 
-    font-size: 14px;
+            font-weight: 900;
 
-    transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+            letter-spacing: 4px;
 
-}
+            color: var(--texto);
 
-.nav-links a:hover {
+        }
 
-    color: var(--azul-fuerte);
 
-    transform:
-        translateY(-1px);
+        .brand span {
 
-}
+            color: var(--azul-fuerte);
 
+        }
 
-/* =========================================================
-   HERO
-========================================================= */
 
-.hero {
+        /* ==================================================
+           MENÚ
+        ================================================== */
 
-    min-height: 100vh;
+        .menu {
 
-    padding:
-        120px 25px 90px;
+            display: flex;
 
-    display: flex;
+            align-items: center;
 
-    align-items: center;
+            gap: 28px;
 
-    justify-content: center;
+            list-style: none;
 
-    text-align: center;
+        }
 
-    position: relative;
 
-    overflow: hidden;
+        .menu a {
 
-    background:
+            text-decoration: none;
 
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(223,245,255,0.9),
-            transparent 30%
-        ),
+            font-size: 13px;
 
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(226,249,238,0.85),
-            transparent 30%
-        ),
+            font-weight: 600;
 
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f6fcff
-        );
+            color: var(--texto-suave);
 
-}
+            transition:
+                color 0.25s ease;
 
+        }
 
-/* =========================================================
-   ORB DECORATIVO
-========================================================= */
 
-.hero-orb {
+        .menu a:hover {
 
-    position: absolute;
+            color: var(--azul-fuerte);
 
-    width: 520px;
-    height: 520px;
+        }
 
-    border-radius: 50%;
 
-    background:
+        /* ==================================================
+           BOTÓN PRODUCTOS DEL MENÚ
+        ================================================== */
 
-        radial-gradient(
-            circle,
-            rgba(223,245,255,0.8),
-            rgba(226,249,238,0.35),
-            transparent 70%
-        );
+        .menu-productos {
 
-    filter: blur(12px);
+            padding:
+                9px 17px;
 
-    animation:
-        flotar 8s ease-in-out infinite;
+            border-radius: 30px;
 
-}
+            background:
+                var(--azul-muy-claro);
 
+            color:
+                var(--azul-fuerte) !important;
 
-@keyframes flotar {
+        }
 
-    0% {
 
-        transform:
-            translateY(0)
-            scale(1);
+        /* ==================================================
+           SECCIÓN GENERAL
+        ================================================== */
 
-    }
+        section {
 
-    50% {
+            position: relative;
 
-        transform:
-            translateY(-22px)
-            scale(1.04);
+        }
 
-    }
 
-    100% {
+        /* ==================================================
+           HERO / PORTADA
+        ================================================== */
 
-        transform:
-            translateY(0)
-            scale(1);
+        .hero {
 
-    }
+            min-height: 100vh;
 
-}
+            padding:
+                130px 25px 90px;
 
+            display: flex;
 
-/* =========================================================
-   CONTENIDO HERO
-========================================================= */
+            align-items: center;
 
-.hero-content {
+            justify-content: center;
 
-    max-width: 900px;
+            text-align: center;
 
-    position: relative;
+            background:
 
-    z-index: 2;
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(232,247,252,0.95),
+                    transparent 32%
+                ),
 
-    animation:
-        aparecer 1s ease;
+                radial-gradient(
+                    circle at 80% 75%,
+                    rgba(228,248,238,0.9),
+                    transparent 32%
+                ),
 
-}
+                #ffffff;
 
+        }
 
-@keyframes aparecer {
 
-    from {
+        .hero-content {
 
-        opacity: 0;
+            max-width: 900px;
 
-        transform:
-            translateY(25px);
+            animation:
+                aparecer 0.9s ease;
 
-    }
+        }
 
-    to {
 
-        opacity: 1;
+        @keyframes aparecer {
 
-        transform:
-            translateY(0);
+            from {
 
-    }
+                opacity: 0;
 
-}
+                transform:
+                    translateY(25px);
 
+            }
 
-/* =========================================================
-   CORÍN
-========================================================= */
+            to {
 
-.corin-mark {
+                opacity: 1;
 
-    width: 58px;
+                transform:
+                    translateY(0);
 
-    height: 58px;
+            }
 
-    margin:
-        0 auto 22px;
+        }
 
-    display: flex;
 
-    align-items: center;
+        /* ==================================================
+           PEQUEÑO SÍMBOLO E
+           
+           ES SECUNDARIO.
+           NO sustituye a ECHOREALM.
+        ================================================== */
 
-    justify-content: center;
+        .mini-symbol {
 
-    border-radius: 19px;
+            width: 52px;
 
-    background:
+            height: 52px;
 
-        linear-gradient(
-            135deg,
-            var(--azul-claro),
-            var(--verde-claro)
-        );
+            margin:
+                0 auto 24px;
 
-    border:
-        1px solid var(--borde);
+            display: flex;
 
-    color: var(--azul-fuerte);
+            align-items: center;
 
-    font-size: 24px;
+            justify-content: center;
 
-    font-weight: 800;
+            border-radius: 16px;
 
-    box-shadow:
-        0 12px 35px
-        rgba(90,170,200,0.10);
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul-claro),
+                    var(--verde-claro)
+                );
 
-}
+            color:
+                var(--azul-fuerte);
 
+            font-size: 22px;
 
-/* =========================================================
-   ETIQUETA
-========================================================= */
+            font-weight: 900;
 
-.eyebrow {
+            border:
+                1px solid var(--borde);
 
-    display: inline-block;
+        }
 
-    padding:
-        9px 17px;
 
-    border-radius: 50px;
+        /* ==================================================
+           TEXTO PEQUEÑO SUPERIOR
+        ================================================== */
 
-    background:
-        rgba(223,245,255,0.65);
+        .eyebrow {
 
-    color:
-        #4c9dbd;
+            display: inline-block;
 
-    font-size: 12px;
+            margin-bottom: 22px;
 
-    font-weight: 700;
+            padding:
+                8px 16px;
 
-    letter-spacing: 3px;
+            border-radius: 30px;
 
-    margin-bottom: 25px;
+            background:
+                var(--azul-muy-claro);
 
-}
+            color:
+                var(--azul-fuerte);
 
+            font-size: 11px;
 
-/* =========================================================
-   LOGO GRANDE
-========================================================= */
+            font-weight: 800;
 
-.hero h1 {
+            letter-spacing: 3px;
 
-    font-size:
-        clamp(
-            55px,
-            12vw,
-            125px
-        );
+        }
 
-    line-height: 0.92;
 
-    letter-spacing:
-        clamp(
-            3px,
-            1.5vw,
-            10px
-        );
+        /* ==================================================
+           ECHOREALM GRANDE
+        ================================================== */
 
-    color:
-        var(--texto);
+        .hero-title {
 
-    margin-bottom: 28px;
+            font-size:
+                clamp(
+                    52px,
+                    12vw,
+                    120px
+                );
 
-}
+            line-height: 0.95;
 
+            letter-spacing:
+                clamp(
+                    2px,
+                    1.2vw,
+                    9px
+                );
 
-.hero h1 span {
+            font-weight: 900;
 
-    color:
-        var(--azul-fuerte);
+            margin-bottom: 25px;
 
-}
+            color:
+                var(--texto);
 
+        }
 
-/* =========================================================
-   BIENVENIDO
-========================================================= */
 
-.hero h2 {
+        .hero-title span {
 
-    font-size:
-        clamp(
-            27px,
-            5vw,
-            45px
-        );
+            color:
+                var(--azul-fuerte);
 
-    font-weight: 500;
+        }
 
-    margin-bottom: 20px;
 
-}
+        /* ==================================================
+           BIENVENIDA
+        ================================================== */
 
+        .hero-subtitle {
 
-.hero p {
+            font-size:
+                clamp(
+                    26px,
+                    5vw,
+                    42px
+                );
 
-    max-width: 680px;
+            font-weight: 500;
 
-    margin: auto;
+            margin-bottom: 18px;
 
-    color:
-        var(--texto-suave);
+        }
 
-    font-size: 19px;
 
-    line-height: 1.75;
+        .hero-description {
 
-}
+            max-width: 650px;
 
+            margin:
+                0 auto;
 
-/* =========================================================
-   BOTÓN EXPLORAR
-========================================================= */
+            color:
+                var(--texto-suave);
 
-.explore-button {
+            font-size: 18px;
 
-    margin-top: 42px;
+            line-height: 1.75;
 
-    padding:
-        17px 35px;
+        }
 
-    border:
-        1px solid
-        rgba(80,170,200,0.18);
 
-    border-radius: 50px;
+        /* ==================================================
+           BOTONES
+        ================================================== */
 
-    background:
+        .button {
 
-        linear-gradient(
-            135deg,
-            var(--azul-claro),
-            var(--verde-claro)
-        );
+            display: inline-flex;
 
-    color:
-        #397b94;
+            align-items: center;
 
-    font-size: 15px;
+            justify-content: center;
 
-    font-weight: 800;
+            text-decoration: none;
 
-    letter-spacing: 1.5px;
+            margin-top: 35px;
 
-    cursor: pointer;
+            padding:
+                16px 29px;
 
-    box-shadow:
-        0 14px 40px
-        rgba(80,170,200,0.13);
+            border-radius: 50px;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul-claro),
+                    var(--verde-claro)
+                );
 
-}
+            border:
+                1px solid var(--borde);
 
+            color:
+                #367d96;
 
-.explore-button:hover {
+            font-size: 13px;
 
-    transform:
-        translateY(-4px);
+            font-weight: 900;
 
-    box-shadow:
-        0 20px 50px
-        rgba(80,170,200,0.20);
+            letter-spacing: 1px;
 
-}
+            box-shadow:
+                0 12px 35px
+                rgba(66,155,185,0.10);
 
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
 
-/* =========================================================
-   INDICADOR SCROLL
-========================================================= */
+        }
 
-.scroll {
 
-    position: absolute;
+        .button:hover {
 
-    bottom: 25px;
+            transform:
+                translateY(-3px);
 
-    left: 50%;
+            box-shadow:
+                0 18px 45px
+                rgba(66,155,185,0.16);
 
-    transform:
-        translateX(-50%);
+        }
 
-    color:
-        #87a1ac;
 
-    font-size: 11px;
+        /* ==================================================
+           INDICADOR DE SCROLL
+        ================================================== */
 
-    letter-spacing: 3px;
+        .scroll-indicator {
 
-    animation:
-        subir 2s infinite;
+            position: absolute;
 
-}
+            bottom: 25px;
 
+            left: 50%;
 
-@keyframes subir {
+            transform:
+                translateX(-50%);
 
-    0%,100% {
+            font-size: 10px;
 
-        transform:
-            translateX(-50%)
-            translateY(0);
+            letter-spacing: 3px;
 
-    }
+            color:
+                #8ca1a9;
 
-    50% {
+        }
 
-        transform:
-            translateX(-50%)
-            translateY(7px);
 
-    }
+        /* ==================================================
+           HISTORIA
+        ================================================== */
 
-}
+        .history {
 
+            min-height: 100vh;
 
-/* =========================================================
-   HISTORIA
-========================================================= */
+            padding:
+                130px 25px;
 
-.history {
+            display: flex;
 
-    min-height: 100vh;
+            align-items: center;
 
-    padding:
-        130px 25px;
+            justify-content: center;
 
-    display: flex;
+            background:
+                var(--blanco-suave);
 
-    align-items: center;
+        }
 
-    justify-content: center;
 
-    background:
+        .history-card {
 
-        linear-gradient(
-            180deg,
-            #ffffff,
-            var(--blanco-suave)
-        );
+            max-width: 900px;
 
-}
+            padding:
+                clamp(
+                    35px,
+                    7vw,
+                    75px
+                );
 
+            background:
+                rgba(255,255,255,0.94);
 
-.content-box {
+            border:
+                1px solid var(--borde);
 
-    max-width: 900px;
+            border-radius: 35px;
 
-    padding:
-        clamp(
-            35px,
-            7vw,
-            75px
-        );
+            box-shadow:
+                var(--sombra);
 
-    border-radius: 36px;
+        }
 
-    background:
-        rgba(255,255,255,0.82);
 
-    border:
-        1px solid var(--borde);
+        .section-label {
 
-    box-shadow:
-        0 25px 80px
-        rgba(80,170,200,0.08);
+            margin-bottom: 18px;
 
-}
+            color:
+                var(--azul-fuerte);
 
+            font-size: 11px;
 
-.section-label {
+            font-weight: 900;
 
-    color:
-        var(--azul-fuerte);
+            letter-spacing: 4px;
 
-    font-size: 12px;
+            text-transform: uppercase;
 
-    font-weight: 800;
+        }
 
-    letter-spacing: 4px;
 
-    text-transform: uppercase;
+        .section-title {
 
-    margin-bottom: 20px;
+            font-size:
+                clamp(
+                    40px,
+                    7vw,
+                    70px
+                );
 
-}
+            line-height: 1.05;
 
+            margin-bottom: 35px;
 
-.content-box h2 {
+        }
 
-    font-size:
-        clamp(
-            40px,
-            7vw,
-            72px
-        );
 
-    line-height: 1.05;
+        .history-card p {
 
-    margin-bottom: 35px;
+            margin-bottom: 22px;
 
-}
+            color:
+                var(--texto-suave);
 
+            font-size: 17px;
 
-.content-box p {
+            line-height: 1.9;
 
-    font-size: 18px;
+        }
 
-    line-height: 1.9;
 
-    color:
-        var(--texto-suave);
+        .highlight {
 
-    margin-bottom: 24px;
+            color:
+                var(--azul-fuerte);
 
-}
+            font-weight: 800;
 
+        }
 
-.highlight {
 
-    color:
-        #438fae;
+        /* ==================================================
+           SINGULARIDAD
+        ================================================== */
 
-    font-weight: 700;
+        .singularity {
 
-}
+            min-height: 100vh;
 
+            padding:
+                130px 25px;
 
-/* =========================================================
-   CORÍN DENTRO DE HISTORIA
-========================================================= */
+            display: flex;
 
-.corin-small {
+            align-items: center;
 
-    display: inline-flex;
+            justify-content: center;
 
-    width: 42px;
+            background:
 
-    height: 42px;
+                linear-gradient(
+                    145deg,
+                    #f4fbfd,
+                    #f4fcf8
+                );
 
-    align-items: center;
+        }
 
-    justify-content: center;
 
-    border-radius: 14px;
+        .singularity-container {
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--azul-claro),
-            var(--verde-claro)
-        );
+            width: 100%;
 
-    color:
-        var(--azul-fuerte);
+            max-width: 1100px;
 
-    font-weight: 800;
+            text-align: center;
 
-    margin-right: 10px;
+        }
 
-}
 
+        .singularity-description {
 
-/* =========================================================
-   SINGULARIDAD
-========================================================= */
+            max-width: 700px;
 
-.singularity {
+            margin:
+                0 auto 55px;
 
-    min-height: 100vh;
+            color:
+                var(--texto-suave);
 
-    padding:
-        130px 25px;
+            font-size: 17px;
 
-    background:
+            line-height: 1.8;
 
-        linear-gradient(
-            135deg,
-            #f4fcff,
-            #f4fff9
-        );
+        }
 
-    display: flex;
 
-    align-items: center;
+        .singularity-grid {
 
-    justify-content: center;
+            display: grid;
 
-}
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
 
+            gap: 18px;
 
-.singularity-container {
+        }
 
-    max-width: 1100px;
 
-    width: 100%;
+        .singularity-card {
 
-    text-align: center;
+            padding:
+                30px 22px;
 
-}
+            background:
+                rgba(255,255,255,0.88);
 
+            border:
+                1px solid var(--borde);
 
-.singularity-container h2 {
+            border-radius: 26px;
 
-    font-size:
-        clamp(
-            42px,
-            7vw,
-            75px
-        );
+            box-shadow:
+                0 15px 45px
+                rgba(60,130,150,0.06);
 
-    margin-bottom: 22px;
+            transition:
+                transform 0.25s ease;
 
-}
+        }
 
 
-.singularity-intro {
+        .singularity-card:hover {
 
-    max-width: 700px;
+            transform:
+                translateY(-6px);
 
-    margin:
-        0 auto 55px;
+        }
 
-    color:
-        var(--texto-suave);
 
-    font-size: 18px;
+        .card-icon {
 
-    line-height: 1.8;
+            width: 54px;
 
-}
+            height: 54px;
 
+            margin:
+                0 auto 18px;
 
-.singularity-grid {
+            display: flex;
 
-    display: grid;
+            align-items: center;
 
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(220px, 1fr)
-        );
+            justify-content: center;
 
-    gap: 20px;
+            border-radius: 17px;
 
-}
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul-muy-claro),
+                    var(--verde-claro)
+                );
 
+            color:
+                var(--azul-fuerte);
 
-.singularity-card {
+            font-weight: 900;
 
-    padding:
-        32px 25px;
+            font-size: 19px;
 
-    background:
-        rgba(255,255,255,0.78);
+        }
 
-    border:
-        1px solid var(--borde);
 
-    border-radius: 27px;
+        .singularity-card h3 {
 
-    box-shadow:
-        0 15px 45px
-        rgba(80,170,200,0.07);
+            margin-bottom: 12px;
 
-    transition:
-        transform 0.3s ease;
+            font-size: 19px;
 
-}
+        }
 
 
-.singularity-card:hover {
+        .singularity-card p {
 
-    transform:
-        translateY(-7px);
+            color:
+                var(--texto-suave);
 
-}
+            font-size: 14px;
 
+            line-height: 1.7;
 
-.singularity-icon {
+        }
 
-    width: 58px;
 
-    height: 58px;
+        /* ==================================================
+           EXPERIENCIA
+        ================================================== */
 
-    margin:
-        0 auto 20px;
+        .experience {
 
-    display: flex;
+            min-height: 80vh;
 
-    align-items: center;
+            padding:
+                120px 25px;
 
-    justify-content: center;
+            display: flex;
 
-    border-radius: 18px;
+            align-items: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--azul-claro),
-            var(--verde-claro)
-        );
+            justify-content: center;
 
-    color:
-        var(--azul-fuerte);
+            text-align: center;
 
-    font-size: 23px;
+            background:
+                #ffffff;
 
-    font-weight: 800;
+        }
 
-}
 
+        .experience-container {
 
-.singularity-card h3 {
+            max-width: 780px;
 
-    margin-bottom: 12px;
+        }
 
-    font-size: 20px;
 
-}
+        .experience-container h2 {
 
+            font-size:
+                clamp(
+                    38px,
+                    7vw,
+                    65px
+                );
 
-.singularity-card p {
+            line-height: 1.05;
 
-    color:
-        var(--texto-suave);
+            margin-bottom: 30px;
 
-    line-height: 1.7;
+        }
 
-    font-size: 15px;
 
-}
+        .experience-container p {
 
+            margin-bottom: 22px;
 
-/* =========================================================
-   SEGUNDA SINGULARIDAD
-========================================================= */
+            color:
+                var(--texto-suave);
 
-.experience {
+            font-size: 17px;
 
-    min-height: 85vh;
+            line-height: 1.85;
 
-    padding:
-        120px 25px;
+        }
 
-    display: flex;
 
-    align-items: center;
+        .divider {
 
-    justify-content: center;
+            width: 80px;
 
-    background:
-        #ffffff;
+            height: 4px;
 
-}
+            margin:
+                35px auto;
 
+            border-radius: 20px;
 
-.experience-container {
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--azul),
+                    var(--verde)
+                );
 
-    max-width: 900px;
+        }
 
-    text-align: center;
 
-}
+        /* ==================================================
+           ÚLTIMO EXPLORAR
+        ================================================== */
 
+        .final {
 
-.experience-container h2 {
+            min-height: 70vh;
 
-    font-size:
-        clamp(
-            38px,
-            6vw,
-            65px
-        );
+            padding:
+                100px 25px;
 
-    margin-bottom: 25px;
+            display: flex;
 
-}
+            align-items: center;
 
+            justify-content: center;
 
-.experience-container p {
+            text-align: center;
 
-    color:
-        var(--texto-suave);
+            background:
 
-    font-size: 18px;
+                radial-gradient(
+                    circle at 20% 30%,
+                    var(--azul-muy-claro),
+                    transparent 35%
+                ),
 
-    line-height: 1.85;
+                radial-gradient(
+                    circle at 80% 70%,
+                    var(--verde-claro),
+                    transparent 35%
+                ),
 
-    margin-bottom: 25px;
+                #ffffff;
 
-}
+        }
 
 
-.experience-line {
+        .final-container {
 
-    width: 100px;
+            max-width: 700px;
 
-    height: 4px;
+        }
 
-    margin:
-        35px auto;
 
-    border-radius: 20px;
+        .final h2 {
 
-    background:
-        linear-gradient(
-            90deg,
-            var(--azul),
-            var(--verde)
-        );
+            font-size:
+                clamp(
+                    42px,
+                    7vw,
+                    72px
+                );
 
-}
+            margin-bottom: 20px;
 
+        }
 
-/* =========================================================
-   SEGUNDO EXPLORAR
-========================================================= */
 
-.final-explore {
+        .final p {
 
-    min-height: 70vh;
+            color:
+                var(--texto-suave);
 
-    padding:
-        100px 25px;
+            font-size: 17px;
 
-    display: flex;
+            line-height: 1.8;
 
-    align-items: center;
+        }
 
-    justify-content: center;
 
-    text-align: center;
+        /* ==================================================
+           PIE DE PÁGINA
+        ================================================== */
 
-    background:
+        footer {
 
-        radial-gradient(
-            circle at 20% 30%,
-            var(--azul-claro),
-            transparent 35%
-        ),
+            padding:
+                35px 20px;
 
-        radial-gradient(
-            circle at 80% 70%,
-            var(--verde-claro),
-            transparent 35%
-        ),
+            text-align: center;
 
-        #ffffff;
+            background:
+                #f6fbfd;
 
-}
+            border-top:
+                1px solid var(--borde);
 
+            color:
+                #81959d;
 
-.final-explore-content {
+            font-size: 13px;
 
-    max-width: 700px;
+        }
 
-}
 
+        footer strong {
 
-.final-explore h2 {
+            color:
+                var(--azul-fuerte);
 
-    font-size:
-        clamp(
-            40px,
-            7vw,
-            70px
-        );
+        }
 
-    margin-bottom: 20px;
 
-}
+        /* ==================================================
+           MÓVIL
+        ================================================== */
 
+        @media (max-width: 850px) {
 
-.final-explore p {
+            .navbar {
 
-    color:
-        var(--texto-suave);
+                padding:
+                    0 18px;
 
-    line-height: 1.8;
+            }
 
-    font-size: 18px;
 
-}
+            .menu {
 
+                gap: 12px;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            }
 
-footer {
 
-    padding:
-        35px 20px;
+            .menu a {
 
-    text-align: center;
+                font-size: 10px;
 
-    background:
-        #f7fcff;
+            }
 
-    border-top:
-        1px solid var(--borde);
 
-    color:
-        #78909a;
+            .brand {
 
-    font-size: 14px;
+                font-size: 15px;
 
-}
+                letter-spacing: 2px;
 
+            }
 
-footer strong {
 
-    color:
-        var(--azul-fuerte);
+            .singularity-grid {
 
-}
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
 
+            }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+        }
 
-@media (max-width: 750px) {
 
-    nav {
+        @media (max-width: 520px) {
 
-        padding:
-            0 18px;
+            .navbar {
 
-    }
+                height: 64px;
 
-    .nav-links {
+            }
 
-        gap: 10px;
 
-    }
+            .menu {
 
-    .nav-links a {
+                gap: 8px;
 
-        font-size: 11px;
+            }
 
-    }
 
-    .logo {
+            .menu a {
 
-        font-size: 15px;
+                font-size: 9px;
 
-        letter-spacing: 2px;
+            }
 
-    }
 
-    .hero {
+            .menu a:nth-child(3),
+            .menu a:nth-child(4) {
 
-        padding-top: 105px;
+                display: none;
 
-    }
+            }
 
-    .content-box {
 
-        border-radius: 27px;
+            .hero {
 
-    }
+                padding-top: 100px;
 
-}
+            }
 
 
-/* =========================================================
-   MÓVILES MUY PEQUEÑOS
-========================================================= */
+            .singularity-grid {
 
-@media (max-width: 480px) {
+                grid-template-columns:
+                    1fr;
 
-    .nav-links {
+            }
 
-        gap: 7px;
 
-    }
+            .history-card {
 
-    .nav-links a {
+                padding:
+                    30px 23px;
 
-        font-size: 9px;
+                border-radius: 25px;
 
-    }
+            }
 
-    .logo {
 
-        font-size: 13px;
+            .history-card p {
 
-    }
+                font-size: 16px;
 
-    .hero h1 {
+            }
 
-        letter-spacing: 2px;
+        }
 
-    }
-
-}
-
-</style>
+    </style>
 
 </head>
 
@@ -1251,501 +1192,489 @@ footer strong {
 <body>
 
 
-<!-- =====================================================
-     NAVEGACIÓN
-===================================================== -->
+    <!-- ==================================================
+         BARRA SUPERIOR
+    ================================================== -->
 
-<nav>
+    <header class="navbar">
 
-    <a
-        href="index.html"
-        class="logo"
+        <a
+            href="index.html"
+            class="brand"
+        >
+            ECHO<span>REALM</span>
+        </a>
+
+
+        <ul class="menu">
+
+            <li>
+                <a href="index.html">
+                    Inicio
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="productos.html"
+                    class="menu-productos"
+                >
+                    Productos
+                </a>
+            </li>
+
+            <li>
+                <a href="#historia">
+                    Historia
+                </a>
+            </li>
+
+            <li>
+                <a href="#singularidad">
+                    Singularidad
+                </a>
+            </li>
+
+        </ul>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         1 — BIENVENIDA
+    ================================================== -->
+
+    <section
+        class="hero"
+        id="inicio"
     >
 
-        ECHO<span>REALM</span>
-
-    </a>
+        <div class="hero-content">
 
 
-    <ul class="nav-links">
+            <!-- Símbolo secundario -->
 
-        <li>
-            <a href="index.html">
-                Inicio
+            <div class="mini-symbol">
+                E
+            </div>
+
+
+            <div class="eyebrow">
+                BIENVENIDO A ECHOREALM
+            </div>
+
+
+            <h1 class="hero-title">
+                ECHO<span>REALM</span>
+            </h1>
+
+
+            <h2 class="hero-subtitle">
+                Un universo que se lleva puesto.
+            </h2>
+
+
+            <p class="hero-description">
+
+                Ropa, música, movimiento y creatividad
+                unidos en un mismo lugar.
+
+                Esto es solo el principio.
+
+            </p>
+
+
+            <!-- PRIMER BOTÓN -->
+
+            <a
+                href="productos.html"
+                class="button"
+            >
+                ✦ EXPLORAR PRODUCTOS
             </a>
-        </li>
 
-        <li>
-            <a href="productos.html">
-                Productos
-            </a>
-        </li>
 
-        <li>
-            <a href="#historia">
+        </div>
+
+
+        <div class="scroll-indicator">
+            DESLIZA ↓
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         2 — NUESTRA HISTORIA
+    ================================================== -->
+
+    <section
+        class="history"
+        id="historia"
+    >
+
+        <div class="history-card">
+
+
+            <div class="section-label">
                 Nuestra historia
+            </div>
+
+
+            <h2 class="section-title">
+                Donde nació todo.
+            </h2>
+
+
+            <p>
+
+                ECHOREALM nació de una idea sencilla:
+
+                <span class="highlight">
+                    crear una marca que se sintiera diferente.
+                </span>
+
+            </p>
+
+
+            <p>
+
+                Todo empezó con la imaginación de un chico
+                de 12 años que quería convertir sus ideas
+                en algo real.
+
+            </p>
+
+
+            <p>
+
+                No había un gran equipo ni una enorme
+                empresa detrás.
+
+                Había creatividad, ganas de aprender
+                y muchas ideas que todavía estaban
+                esperando a convertirse en realidad.
+
+            </p>
+
+
+            <p>
+
+                De ahí nació ECHOREALM.
+
+                Una marca que no quiere limitarse
+                únicamente a fabricar ropa.
+
+            </p>
+
+
+            <p>
+
+                Queremos construir una identidad alrededor
+                de cada colección: desde la prenda hasta
+                los pequeños detalles que solamente descubre
+                quien la tiene.
+
+            </p>
+
+
+            <p>
+
+                La música, el movimiento, el diseño
+                y la creatividad forman parte de nuestro
+                universo.
+
+            </p>
+
+
+            <p>
+
+                Y lo mejor de todo:
+
+                <span class="highlight">
+                    todavía estamos empezando.
+                </span>
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         3 — SINGULARIDAD
+    ================================================== -->
+
+    <section
+        class="singularity"
+        id="singularidad"
+    >
+
+        <div class="singularity-container">
+
+
+            <div class="section-label">
+                Nuestra identidad
+            </div>
+
+
+            <h2 class="section-title">
+                La singularidad
+                de ECHOREALM.
+            </h2>
+
+
+            <p class="singularity-description">
+
+                ECHOREALM no quiere depender de una sola
+                característica.
+
+                Queremos crear un sistema de pequeños
+                detalles que pueda evolucionar con cada
+                colección.
+
+            </p>
+
+
+            <div class="singularity-grid">
+
+
+                <!-- ECOCODE -->
+
+                <article class="singularity-card">
+
+                    <div class="card-icon">
+                        E
+                    </div>
+
+                    <h3>
+                        EcoCode
+                    </h3>
+
+                    <p>
+
+                        Un código especial que puede conectar
+                        tu producto con contenido y experiencias
+                        relacionadas con la colección.
+
+                    </p>
+
+                </article>
+
+
+                <!-- POINTS -->
+
+                <article class="singularity-card">
+
+                    <div class="card-icon">
+                        +
+                    </div>
+
+                    <h3>
+                        Echorealm Points
+                    </h3>
+
+                    <p>
+
+                        Tus compras pueden convertirse
+                        en puntos para conseguir pequeñas
+                        recompensas y accesorios.
+
+                    </p>
+
+                </article>
+
+
+                <!-- MEMBER -->
+
+                <article class="singularity-card">
+
+                    <div class="card-icon">
+                        M
+                    </div>
+
+                    <h3>
+                        Member
+                    </h3>
+
+                    <p>
+
+                        Acceso anticipado a determinados
+                        productos, ediciones especiales
+                        y experiencias exclusivas.
+
+                    </p>
+
+                </article>
+
+
+                <!-- DROPS -->
+
+                <article class="singularity-card">
+
+                    <div class="card-icon">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Drop Experience
+                    </h3>
+
+                    <p>
+
+                        Cada lanzamiento puede tener
+                        pequeños detalles propios:
+                        etiquetas, regalos, gráficos
+                        o elementos especiales.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         4 — EXPERIENCIA
+    ================================================== -->
+
+    <section class="experience">
+
+        <div class="experience-container">
+
+
+            <div class="section-label">
+                Más que ropa
+            </div>
+
+
+            <h2>
+                Cada colección
+                tiene su propia historia.
+            </h2>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                Una sudadera puede ser minimalista.
+
+                Una camiseta puede tener un gráfico
+                completamente diferente.
+
+                Una gorra puede utilizar solamente
+                nuestro símbolo.
+
+            </p>
+
+
+            <p>
+
+                No queremos repetir siempre la misma
+                fórmula.
+
+                Queremos que ECHOREALM pueda crecer,
+                cambiar y sorprender.
+
+            </p>
+
+
+            <p>
+
+                Algunas cosas permanecerán.
+
+                Otras evolucionarán.
+
+                Y esa mezcla será parte de nuestra identidad.
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         5 — SEGUNDO EXPLORAR
+         
+         IMPORTANTE:
+         Este botón abre productos.html.
+         Los productos NO están debajo de esta página.
+    ================================================== -->
+
+    <section class="final">
+
+        <div class="final-container">
+
+
+            <div class="mini-symbol">
+                E
+            </div>
+
+
+            <div class="section-label">
+                Ahora sí
+            </div>
+
+
+            <h2>
+                Explora ECHOREALM.
+            </h2>
+
+
+            <p>
+
+                Descubre las colecciones,
+                las prendas y los próximos drops.
+
+            </p>
+
+
+            <!-- SEGUNDO BOTÓN -->
+
+            <a
+                href="productos.html"
+                class="button"
+            >
+                ✦ VER PRODUCTOS
             </a>
-        </li>
-
-        <li>
-            <a href="#singularidad">
-                Singularidad
-            </a>
-        </li>
-
-    </ul>
-
-</nav>
-
-
-
-<!-- =====================================================
-     DIAPOSITIVA 1 — BIENVENIDA
-===================================================== -->
-
-<section
-    class="hero"
-    id="inicio"
->
-
-    <div class="hero-orb"></div>
-
-
-    <div class="hero-content">
-
-
-        <!-- CORÍN -->
-
-        <div class="corin-mark">
-            C
-        </div>
-
-
-        <div class="eyebrow">
-            BIENVENIDO A ECHOREALM
-        </div>
-
-
-        <h1>
-            ECHO<span>REALM</span>
-        </h1>
-
-
-        <h2>
-            Bienvenido a Corín
-        </h2>
-
-
-        <p>
-
-            Un pequeño universo creado para
-            convertir imaginación, ideas y creatividad
-            en algo real.
-
-        </p>
-
-
-        <!-- PRIMER EXPLORAR -->
-
-        <a
-            href="productos.html"
-            class="explore-button"
-            style="display:inline-block;text-decoration:none;"
-        >
-
-            ✦ EXPLORAR
-
-        </a>
-
-    </div>
-
-
-    <div class="scroll">
-        DESLIZA PARA DESCUBRIR ↓
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DIAPOSITIVA 2 — HISTORIA
-===================================================== -->
-
-<section
-    class="history"
-    id="historia"
->
-
-    <div class="content-box">
-
-
-        <div class="section-label">
-            Nuestra historia
-        </div>
-
-
-        <h2>
-            Donde nació todo.
-        </h2>
-
-
-        <p>
-
-            <span class="corin-small">
-                C
-            </span>
-
-            Echorealm nació de una pregunta:
-
-            <span class="highlight">
-                ¿y si una marca pudiera sentirse como un mundo?
-            </span>
-
-        </p>
-
-
-        <p>
-
-            Todo comenzó con la imaginación de un
-            <span class="highlight">
-                chico de 12 años
-            </span>
-            que quería convertir sus ideas en algo real.
-
-        </p>
-
-
-        <p>
-
-            Al principio no había una gran empresa,
-            un enorme equipo ni una tienda llena de productos.
-
-            Solo había una idea, muchas ganas de aprender
-            y una visión.
-
-        </p>
-
-
-        <p>
-
-            Poco a poco apareció el nombre
-            <span class="highlight">
-                ECHOREALM
-            </span>.
-
-            Después apareció Corín, nuestro pequeño
-            símbolo dentro de este universo.
-
-        </p>
-
-
-        <p>
-
-            La idea nunca fue crear simplemente ropa.
-
-            Queremos crear algo que tenga
-            <span class="highlight">
-                identidad, historia y evolución
-            </span>.
-
-        </p>
-
-
-        <p>
-
-            Y esto es solamente el comienzo.
-
-        </p>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DIAPOSITIVA 3 — SINGULARIDAD
-===================================================== -->
-
-<section
-    class="singularity"
-    id="singularidad"
->
-
-    <div class="singularity-container">
-
-
-        <div class="section-label">
-            Lo que nos hace diferentes
-        </div>
-
-
-        <h2>
-            La singularidad
-            de Echorealm.
-        </h2>
-
-
-        <p class="singularity-intro">
-
-            Echorealm no quiere que una prenda sea
-            simplemente una prenda.
-
-            Queremos construir un universo alrededor
-            de ella.
-
-            Por eso nuestra singularidad no es una sola
-            característica: es un sistema que puede
-            evolucionar con cada colección.
-
-        </p>
-
-
-        <div class="singularity-grid">
-
-
-            <!-- ECOCODE -->
-
-            <div class="singularity-card">
-
-                <div class="singularity-icon">
-                    E
-                </div>
-
-                <h3>
-                    EcoCode
-                </h3>
-
-                <p>
-
-                    Un código asociado a la experiencia
-                    del producto.
-
-                    Puede permitir rastrear el pedido,
-                    descubrir contenido y acceder a
-                    pequeños detalles relacionados
-                    con la prenda.
-
-                </p>
-
-            </div>
-
-
-            <!-- POINTS -->
-
-            <div class="singularity-card">
-
-                <div class="singularity-icon">
-                    +
-                </div>
-
-                <h3>
-                    Echorealm Points
-                </h3>
-
-                <p>
-
-                    Las compras pueden convertirse
-                    en puntos.
-
-                    Con ellos podremos desbloquear
-                    pequeños objetos, accesorios
-                    y recompensas especiales.
-
-                </p>
-
-            </div>
-
-
-            <!-- MEMBER -->
-
-            <div class="singularity-card">
-
-                <div class="singularity-icon">
-                    M
-                </div>
-
-                <h3>
-                    Member
-                </h3>
-
-                <p>
-
-                    Una comunidad con acceso anticipado,
-                    productos seleccionados, ediciones
-                    especiales y experiencias que no
-                    tienen por qué estar disponibles
-                    para todo el mundo.
-
-                </p>
-
-            </div>
-
-
-            <!-- DROPS -->
-
-            <div class="singularity-card">
-
-                <div class="singularity-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    Drop Experience
-                </h3>
-
-                <p>
-
-                    Algunas colecciones podrán tener
-                    pequeños detalles propios del
-                    lanzamiento.
-
-                    Un Eco Wave puede tener una sorpresa.
-                    Un Eco Tag puede tener otra.
-
-                    Cada drop puede sentirse diferente.
-
-                </p>
-
-            </div>
 
 
         </div>
 
-
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =====================================================
-     DIAPOSITIVA 4 — LA EXPERIENCIA
-===================================================== -->
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
 
-<section class="experience">
+    <footer>
 
-    <div class="experience-container">
+        <strong>ECHOREALM</strong>
 
+        <br><br>
 
-        <div class="section-label">
-            Más que una prenda
-        </div>
+        El principio de algo nuevo.
 
-
-        <h2>
-            Cada colección
-            puede contar algo.
-        </h2>
-
-
-        <div class="experience-line"></div>
-
-
-        <p>
-
-            Hoy puede ser una sudadera.
-
-            Mañana puede ser una camiseta,
-            un pantalón, una gorra o un accesorio.
-
-        </p>
-
-
-        <p>
-
-            Lo importante no es repetir siempre
-            la misma experiencia.
-
-            Queremos que Echorealm pueda evolucionar
-            y sorprender.
-
-        </p>
-
-
-        <p>
-
-            Por eso mantendremos algunas cosas
-            que representan a la marca y otras
-            podrán cambiar con cada nueva etapa.
-
-        </p>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DIAPOSITIVA 5 — EXPLORAR
-===================================================== -->
-
-<section class="final-explore">
-
-    <div class="final-explore-content">
-
-
-        <div class="corin-mark">
-            C
-        </div>
-
-
-        <div class="section-label">
-            Ahora sí
-        </div>
-
-
-        <h2>
-            Explora Echorealm.
-        </h2>
-
-
-        <p>
-
-            Has llegado al final del comienzo.
-
-            Ahora puedes entrar en nuestro universo
-            de productos.
-
-        </p>
-
-
-        <!-- SEGUNDO EXPLORAR -->
-
-        <a
-            href="productos.html"
-            class="explore-button"
-            style="display:inline-block;text-decoration:none;"
-        >
-
-            ✦ EXPLORAR PRODUCTOS
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    ECHO<strong>REALM</strong>
-
-    <br><br>
-
-    El principio de algo nuevo.
-
-</footer>
+    </footer>
 
 
 </body>
