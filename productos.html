@@ -1,1146 +1,801 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>ECHOREALM — Productos</title>
-
-    <style>
-        :root {
-            --blanco: #ffffff;
-            --fondo: #f7fcfd;
-            --azul: #6fc3dc;
-            --azul-fuerte: #3d91ad;
-            --azul-claro: #dff4fa;
-            --verde: #dff4e9;
-            --texto: #243f4b;
-            --gris: #748991;
-            --borde: rgba(61, 145, 173, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--fondo);
-            color: var(--texto);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ==============================
-           NAVEGACIÓN
-        ============================== */
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            height: 74px;
-            padding: 0 6%;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid var(--borde);
-        }
-
-        .brand {
-            font-size: 20px;
-            font-weight: 900;
-            letter-spacing: 4px;
-        }
-
-        .brand span {
-            color: var(--azul-fuerte);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .back {
-            color: var(--gris);
-            font-size: 13px;
-            padding: 9px 15px;
-            border-radius: 30px;
-        }
-
-        .back:hover {
-            background: var(--azul-claro);
-            color: var(--azul-fuerte);
-        }
-
-        /* ==============================
-           CABECERA
-        ============================== */
-
-        .shop-header {
-            padding: 90px 25px 55px;
-            text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at 20% 20%,
-                    rgba(223,244,250,0.9),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 80% 70%,
-                    rgba(223,244,233,0.8),
-                    transparent 35%
-                ),
-                white;
-        }
-
-        .label {
-            color: var(--azul-fuerte);
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 18px;
-        }
-
-        .shop-header h1 {
-            font-size: clamp(48px, 9vw, 90px);
-            letter-spacing: 3px;
-            margin-bottom: 18px;
-        }
-
-        .shop-header p {
-            max-width: 620px;
-            margin: auto;
-            color: var(--gris);
-            line-height: 1.7;
-            font-size: 17px;
-        }
 
-        /* ==============================
-           BUSCADOR
-        ============================== */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Productos — ECHOREALM</title>
+
+<style>
+
+:root{
+    --blue:#3f73c8;
+    --dark:#14243a;
+    --muted:#718096;
+    --line:#dce5f0;
+    --off:#f7f9fc;
+    --white:#fff;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--white);
+    color:var(--dark);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(255,255,255,.9);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav{
+    height:76px;
+    max-width:1400px;
+    margin:auto;
+    padding:0 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:900;
+    font-size:20px;
+}
+
+.symbol{
+    width:32px;
+    height:32px;
+    border:3px solid var(--blue);
+    transform:rotate(45deg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.symbol span{
+    transform:rotate(-45deg);
+    color:var(--blue);
+}
+
+.back{
+    font-size:14px;
+    font-weight:700;
+}
+
+.back:hover{
+    color:var(--blue);
+}
+
+/* HERO SHOP */
+
+.shop-hero{
+    max-width:1400px;
+    margin:auto;
+    padding:80px 30px 50px;
+}
+
+.shop-label{
+    color:var(--blue);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:3px;
+    margin-bottom:20px;
+}
+
+.shop-hero h1{
+    font-size:clamp(55px,8vw,100px);
+    letter-spacing:-5px;
+    line-height:.9;
+}
+
+.shop-hero p{
+    color:var(--muted);
+    margin-top:25px;
+    max-width:600px;
+    line-height:1.7;
+}
+
+/* CONTROLS */
+
+.controls{
+    max-width:1400px;
+    margin:auto;
+    padding:25px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    border:1px solid var(--line);
+    background:white;
+    padding:11px 17px;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:13px;
+}
+
+.filter.active,
+.filter:hover{
+    background:var(--blue);
+    border-color:var(--blue);
+    color:white;
+}
+
+.search{
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:13px 18px;
+    width:230px;
+    outline:none;
+    font-size:14px;
+}
+
+.search:focus{
+    border-color:var(--blue);
+}
+
+/* PRODUCTS */
+
+.products{
+    max-width:1400px;
+    margin:auto;
+    padding:55px 30px 120px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.product{
+    cursor:pointer;
+}
+
+.product-image{
+    height:470px;
+    border-radius:25px;
+    background:var(--off);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product:hover .product-image{
+    transform:translateY(-5px);
+}
+
+.product-label{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:white;
+    padding:8px 12px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:900;
+}
+
+.garment{
+    width:52%;
+    height:70%;
+    border-radius:30px 30px 15px 15px;
+    background:white;
+    box-shadow:0 15px 40px rgba(20,36,58,.1);
+    position:relative;
+}
+
+.garment.blue{
+    background:#7ea9dc;
+}
+
+.garment.green{
+    background:#b4cdbf;
+}
+
+.garment::after{
+    content:"ECHOREALM";
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:-1px;
+    color:var(--blue);
+    white-space:nowrap;
+}
+
+.garment.blue::after,
+.garment.green::after{
+    color:white;
+}
+
+.product-info{
+    padding:18px 3px 0;
+}
+
+.product-info h3{
+    font-size:17px;
+}
+
+.product-info p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:7px;
+}
+
+.price{
+    margin-top:10px;
+    font-weight:900;
+}
+
+/* BOTTOM */
+
+.shop-bottom{
+    background:var(--dark);
+    color:white;
+    text-align:center;
+    padding:90px 25px;
+}
+
+.shop-bottom h2{
+    font-size:55px;
+    letter-spacing:-3px;
+}
+
+.shop-bottom p{
+    color:#b9c7d8;
+    margin:20px auto 30px;
+    max-width:500px;
+    line-height:1.7;
+}
+
+.home-button{
+    display:inline-block;
+    background:white;
+    color:var(--dark);
+    padding:15px 25px;
+    border-radius:30px;
+    font-weight:800;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .nav{
+        padding:0 20px;
+    }
+
+    .shop-hero{
+        padding:60px 20px 40px;
+    }
+
+    .controls{
+        padding:20px;
+        align-items:stretch;
+        flex-direction:column;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .products{
+        padding:35px 20px 80px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .product-image{
+        height:420px;
+    }
+
+    .shop-bottom h2{
+        font-size:42px;
+    }
+}
+
+</style>
 
-        .tools {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 35px 25px 20px;
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 17px 22px;
-
-            border: 1px solid var(--borde);
-            border-radius: 50px;
-
-            outline: none;
-
-            background: white;
-
-            font-size: 15px;
-            color: var(--texto);
-
-            box-shadow:
-                0 10px 35px
-                rgba(61,145,173,0.06);
-        }
-
-        .search-box input:focus {
-            border-color: var(--azul);
-        }
-
-        /* ==============================
-           FILTROS
-        ============================== */
-
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-
-            gap: 10px;
-
-            margin-top: 22px;
-        }
-
-        .filter {
-            border: 1px solid var(--borde);
-
-            background: white;
-
-            color: var(--gris);
-
-            padding: 10px 17px;
-
-            border-radius: 30px;
-
-            cursor: pointer;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            transition:
-                background 0.2s,
-                color 0.2s,
-                transform 0.2s;
-        }
-
-        .filter:hover {
-            transform: translateY(-2px);
-        }
-
-        .filter.active {
-            background: var(--azul-claro);
-            color: var(--azul-fuerte);
-        }
-
-        /* ==============================
-           DROP DESTACADO
-        ============================== */
-
-        .featured {
-            max-width: 1200px;
-            margin: 35px auto 20px;
-            padding: 0 25px;
-        }
-
-        .featured-box {
-            min-height: 260px;
-
-            border-radius: 32px;
-
-            padding: 45px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e4f6fb,
-                    #edf9f2
-                );
-
-            border: 1px solid var(--borde);
-        }
-
-        .featured-text {
-            max-width: 600px;
-        }
-
-        .featured-text small {
-            color: var(--azul-fuerte);
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
-
-        .featured-text h2 {
-            margin: 12px 0;
-            font-size: clamp(30px, 5vw, 50px);
-        }
-
-        .featured-text p {
-            color: var(--gris);
-            line-height: 1.7;
-        }
-
-        .featured-symbol {
-            width: 120px;
-            height: 120px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 32px;
-
-            background: white;
-
-            color: var(--azul-fuerte);
-
-            font-size: 55px;
-            font-weight: 900;
-
-            box-shadow:
-                0 20px 50px
-                rgba(61,145,173,0.10);
-        }
-
-        /* ==============================
-           PRODUCTOS
-        ============================== */
-
-        .products {
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            padding:
-                35px 25px 100px;
-        }
-
-        .products-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-
-            margin-bottom: 25px;
-        }
-
-        .products-title h2 {
-            font-size: 28px;
-        }
-
-        .products-title span {
-            color: var(--gris);
-            font-size: 13px;
-        }
-
-        .grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 22px;
-        }
-
-        /* ==============================
-           TARJETA
-        ============================== */
-
-        .product {
-            background: white;
-
-            border: 1px solid var(--borde);
-
-            border-radius: 25px;
-
-            overflow: hidden;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-        .product:hover {
-            transform: translateY(-7px);
-
-            box-shadow:
-                0 20px 50px
-                rgba(61,145,173,0.10);
-        }
-
-        .product-image {
-            height: 330px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #edf9fc,
-                    #f1faf5
-                );
-
-            color: #8db8c5;
-
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-category {
-            color: var(--azul-fuerte);
-
-            font-size: 10px;
-
-            font-weight: 900;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 8px;
-        }
-
-        .product-name {
-            font-size: 19px;
-            font-weight: 800;
-
-            margin-bottom: 8px;
-        }
-
-        .product-description {
-            color: var(--gris);
-
-            font-size: 13px;
-
-            line-height: 1.6;
-
-            margin-bottom: 16px;
-        }
-
-        .product-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .price {
-            font-weight: 900;
-        }
-
-        .view {
-            padding: 9px 14px;
-
-            border-radius: 25px;
-
-            background: var(--azul-claro);
-
-            color: var(--azul-fuerte);
-
-            font-size: 11px;
-
-            font-weight: 900;
-        }
-
-        /* ==============================
-           MENSAJE SIN RESULTADOS
-        ============================== */
-
-        .empty {
-            display: none;
-
-            text-align: center;
-
-            padding: 70px 20px;
-
-            color: var(--gris);
-        }
-
-        /* ==============================
-           FOOTER
-        ============================== */
-
-        footer {
-            padding: 35px 20px;
-
-            text-align: center;
-
-            background: white;
-
-            border-top: 1px solid var(--borde);
-
-            color: var(--gris);
-
-            font-size: 13px;
-        }
-
-        footer strong {
-            color: var(--azul-fuerte);
-        }
-
-        /* ==============================
-           MÓVIL
-        ============================== */
-
-        @media (max-width: 800px) {
-
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .featured-box {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 30px;
-            }
-
-        }
-
-        @media (max-width: 540px) {
-
-            .navbar {
-                height: 64px;
-                padding: 0 18px;
-            }
-
-            .brand {
-                font-size: 15px;
-                letter-spacing: 2px;
-            }
-
-            .back {
-                font-size: 10px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-image {
-                height: 380px;
-            }
-
-            .featured-box {
-                padding: 30px;
-            }
-
-            .featured-symbol {
-                width: 90px;
-                height: 90px;
-                font-size: 40px;
-            }
-
-        }
-
-    </style>
 </head>
-
 
 <body>
 
 
-    <!-- ==========================================
-         NAVEGACIÓN
-    =========================================== -->
+<header>
 
-    <nav class="navbar">
+<nav class="nav">
 
-        <a
-            href="index.html"
-            class="brand"
-        >
-            ECHO<span>REALM</span>
-        </a>
+<a href="index.html" class="brand">
 
-        <div class="nav-right">
+<div class="symbol">
+<span>E</span>
+</div>
 
-            <a
-                href="index.html"
-                class="back"
-            >
-                ← Volver al inicio
-            </a>
+ECHOREALM
 
-        </div>
+</a>
 
-    </nav>
+<a href="index.html" class="back">
+← Volver a ECHOREALM
+</a>
 
+</nav>
 
+</header>
 
-    <!-- ==========================================
-         CABECERA
-    =========================================== -->
 
-    <header class="shop-header">
+<section class="shop-hero">
 
-        <div class="label">
-            ECHOREALM COLLECTION
-        </div>
+<div class="shop-label">
+ECHOREALM / COLLECTION
+</div>
 
-        <h1>
-            PRODUCTOS
-        </h1>
+<h1>
+THE<br>
+COLLECTION.
+</h1>
 
-        <p>
-            Descubre las prendas, los próximos drops
-            y todo lo que estamos construyendo.
-        </p>
+<p>
+Descubre las prendas y accesorios de ECHOREALM.
+Cada pieza forma parte de un capítulo diferente.
+</p>
 
-    </header>
+</section>
 
 
+<section class="controls">
 
-    <!-- ==========================================
-         BUSCADOR Y FILTROS
-    =========================================== -->
+<div class="filters">
 
-    <div class="tools">
+<button class="filter active" onclick="filterProducts('all')">
+Todo
+</button>
 
-        <div class="search-box">
+<button class="filter" onclick="filterProducts('hoodies')">
+Sudaderas
+</button>
 
-            <input
-                type="text"
-                id="search"
-                placeholder="Buscar productos..."
-            >
+<button class="filter" onclick="filterProducts('shirts')">
+Camisetas
+</button>
 
-        </div>
+<button class="filter" onclick="filterProducts('pants')">
+Pantalones
+</button>
 
+<button class="filter" onclick="filterProducts('caps')">
+Gorras
+</button>
 
-        <div class="filters">
+<button class="filter" onclick="filterProducts('accessories')">
+Accesorios
+</button>
 
-            <button
-                class="filter active"
-                data-category="todos"
-            >
-                Todos
-            </button>
+</div>
 
-            <button
-                class="filter"
-                data-category="camisetas"
-            >
-                Camisetas
-            </button>
+<input
+class="search"
+id="search"
+type="text"
+placeholder="Buscar productos..."
+onkeyup="searchProducts()"
+>
 
-            <button
-                class="filter"
-                data-category="sudaderas"
-            >
-                Sudaderas
-            </button>
+</section>
 
-            <button
-                class="filter"
-                data-category="hoodies"
-            >
-                Hoodies
-            </button>
 
-            <button
-                class="filter"
-                data-category="pantalones"
-            >
-                Pantalones
-            </button>
+<section class="products">
 
-            <button
-                class="filter"
-                data-category="gorras"
-            >
-                Gorras
-            </button>
+<div class="grid" id="productGrid">
 
-            <button
-                class="filter"
-                data-category="accesorios"
-            >
-                Accesorios
-            </button>
 
-        </div>
+<!-- HOODIES -->
 
-    </div>
+<article class="product" data-category="hoodies">
 
+<div class="product-image">
 
+<div class="product-label">
+CHAPTER 01
+</div>
 
-    <!-- ==========================================
-         DROP DESTACADO
-    =========================================== -->
+<div class="garment"></div>
 
-    <section class="featured">
+</div>
 
-        <div class="featured-box">
+<div class="product-info">
 
-            <div class="featured-text">
+<h3>Replay Hoodie — White</h3>
 
-                <small>
-                    PRÓXIMAMENTE
-                </small>
+<p>Sudadera heavyweight · ECHOREALM</p>
 
-                <h2>
-                    THE FIRST DROP.
-                </h2>
+<div class="price">79,90 €</div>
 
-                <p>
+</div>
 
-                    La primera colección de ECHOREALM
-                    está tomando forma.
+</article>
 
-                    Pronto podrás descubrir cada prenda
-                    y todos sus detalles.
 
-                </p>
+<article class="product" data-category="hoodies">
 
-            </div>
+<div class="product-image">
 
+<div class="product-label">
+CHAPTER 01
+</div>
 
-            <div class="featured-symbol">
-                E
-            </div>
+<div class="garment blue"></div>
 
-        </div>
+</div>
 
-    </section>
+<div class="product-info">
 
+<h3>Replay Hoodie — Blue</h3>
 
+<p>Sudadera heavyweight · ECHOREALM</p>
 
-    <!-- ==========================================
-         LISTA DE PRODUCTOS
-    =========================================== -->
+<div class="price">79,90 €</div>
 
-    <main class="products">
+</div>
 
-        <div class="products-title">
+</article>
 
-            <h2>
-                Colección
-            </h2>
 
-            <span id="counter">
-                6 productos
-            </span>
+<article class="product" data-category="hoodies">
 
-        </div>
+<div class="product-image">
 
+<div class="product-label">
+CHAPTER 02
+</div>
 
-        <div
-            class="grid"
-            id="productGrid"
-        >
+<div class="garment green"></div>
 
+</div>
 
-            <!-- PRODUCTO 1 -->
+<div class="product-info">
 
-            <article
-                class="product"
-                data-category="sudaderas"
-                data-name="sudadera echorealm"
-            >
+<h3>Afterglow Hoodie</h3>
 
-                <div class="product-image">
-                    PRÓXIMAMENTE
-                </div>
+<p>Sudadera heavyweight · Limited</p>
 
-                <div class="product-info">
+<div class="price">84,90 €</div>
 
-                    <div class="product-category">
-                        SUDADERAS
-                    </div>
+</div>
 
-                    <div class="product-name">
-                        Echorealm Hoodie
-                    </div>
+</article>
 
-                    <div class="product-description">
-                        Diseño principal de la colección.
-                    </div>
 
-                    <div class="product-bottom">
+<!-- SHIRTS -->
 
-                        <span class="price">
-                            Próximamente
-                        </span>
+<article class="product" data-category="shirts">
 
-                        <span class="view">
-                            VER
-                        </span>
+<div class="product-image">
 
-                    </div>
+<div class="garment"></div>
 
-                </div>
+</div>
 
-            </article>
+<div class="product-info">
 
+<h3>Replay Tee — White</h3>
 
+<p>Camiseta premium</p>
 
-            <!-- PRODUCTO 2 -->
+<div class="price">39,90 €</div>
 
-            <article
-                class="product"
-                data-category="camisetas"
-                data-name="camiseta echorealm"
-            >
+</div>
 
-                <div class="product-image">
-                    PRÓXIMAMENTE
-                </div>
+</article>
 
-                <div class="product-info">
 
-                    <div class="product-category">
-                        CAMISETAS
-                    </div>
+<article class="product" data-category="shirts">
 
-                    <div class="product-name">
-                        Echorealm Tee
-                    </div>
+<div class="product-image">
 
-                    <div class="product-description">
-                        Una pieza limpia y esencial.
-                    </div>
+<div class="garment blue"></div>
 
-                    <div class="product-bottom">
+</div>
 
-                        <span class="price">
-                            Próximamente
-                        </span>
+<div class="product-info">
 
-                        <span class="view">
-                            VER
-                        </span>
+<h3>Echo Wave Tee — Blue</h3>
 
-                    </div>
+<p>Camiseta premium</p>
 
-                </div>
+<div class="price">42,90 €</div>
 
-            </article>
+</div>
 
+</article>
 
 
-            <!-- PRODUCTO 3 -->
+<article class="product" data-category="shirts">
 
-            <article
-                class="product"
-                data-category="hoodies"
-                data-name="hoodie echorealm"
-            >
+<div class="product-image">
 
-                <div class="product-image">
-                    PRÓXIMAMENTE
-                </div>
+<div class="garment green"></div>
 
-                <div class="product-info">
+</div>
 
-                    <div class="product-category">
-                        HOODIES
-                    </div>
+<div class="product-info">
 
-                    <div class="product-name">
-                        Echo Hoodie
-                    </div>
+<h3>Afterglow Tee</h3>
 
-                    <div class="product-description">
-                        Una pieza pensada para el día a día.
-                    </div>
+<p>Camiseta premium</p>
 
-                    <div class="product-bottom">
+<div class="price">42,90 €</div>
 
-                        <span class="price">
-                            Próximamente
-                        </span>
+</div>
 
-                        <span class="view">
-                            VER
-                        </span>
+</article>
 
-                    </div>
 
-                </div>
+<!-- PANTS -->
 
-            </article>
+<article class="product" data-category="pants">
 
+<div class="product-image">
 
+<div class="garment"></div>
 
-            <!-- PRODUCTO 4 -->
+</div>
 
-            <article
-                class="product"
-                data-category="pantalones"
-                data-name="pantalon echorealm"
-            >
+<div class="product-info">
 
-                <div class="product-image">
-                    PRÓXIMAMENTE
-                </div>
+<h3>Replay Sweatpants</h3>
 
-                <div class="product-info">
+<p>Pantalón heavyweight</p>
 
-                    <div class="product-category">
-                        PANTALONES
-                    </div>
+<div class="price">64,90 €</div>
 
-                    <div class="product-name">
-                        Realm Pants
-                    </div>
+</div>
 
-                    <div class="product-description">
-                        Diseño cómodo para completar el look.
-                    </div>
+</article>
 
-                    <div class="product-bottom">
 
-                        <span class="price">
-                            Próximamente
-                        </span>
+<article class="product" data-category="pants">
 
-                        <span class="view">
-                            VER
-                        </span>
+<div class="product-image">
 
-                    </div>
+<div class="garment blue"></div>
 
-                </div>
+</div>
 
-            </article>
+<div class="product-info">
 
+<h3>Echo Track Pants</h3>
 
+<p>Pantalón relaxed fit</p>
 
-            <!-- PRODUCTO 5 -->
+<div class="price">69,90 €</div>
 
-            <article
-                class="product"
-                data-category="gorras"
-                data-name="gorra echorealm"
-            >
+</div>
 
-                <div class="product-image">
-                    PRÓXIMAMENTE
-                </div>
+</article>
 
-                <div class="product-info">
 
-                    <div class="product-category">
-                        GORRAS
-                    </div>
+<!-- CAPS -->
 
-                    <div class="product-name">
-                        Echorealm Cap
-                    </div>
+<article class="product" data-category="caps">
 
-                    <div class="product-description">
-                        El símbolo de Echorealm llevado de forma minimalista.
-                    </div>
+<div class="product-image">
 
-                    <div class="product-bottom">
+<div class="garment"></div>
 
-                        <span class="price">
-                            Próximamente
-                        </span>
+</div>
 
-                        <span class="view">
-                            VER
-                        </span>
+<div class="product-info">
 
-                    </div>
+<h3>ECHOREALM Cap — White</h3>
 
-                </div>
+<p>6 panel · bordado frontal</p>
 
-            </article>
+<div class="price">29,90 €</div>
 
+</div>
 
+</article>
 
-            <!-- PRODUCTO 6 -->
 
-            <article
-                class="product"
-                data-category="accesorios"
-                data-name="accesorio echorealm"
-            >
+<article class="product" data-category="caps">
 
-                <div class="product-image">
-                    PRÓXIMAMENTE
-                </div>
+<div class="product-image">
 
-                <div class="product-info">
+<div class="garment blue"></div>
 
-                    <div class="product-category">
-                        ACCESORIOS
-                    </div>
+</div>
 
-                    <div class="product-name">
-                        Echo Accessory
-                    </div>
+<div class="product-info">
 
-                    <div class="product-description">
-                        Pequeños detalles para completar la colección.
-                    </div>
+<h3>ECHOREALM Cap — Blue</h3>
 
-                    <div class="product-bottom">
+<p>6 panel · bordado frontal</p>
 
-                        <span class="price">
-                            Próximamente
-                        </span>
+<div class="price">29,90 €</div>
 
-                        <span class="view">
-                            VER
-                        </span>
+</div>
 
-                    </div>
+</article>
 
-                </div>
 
-            </article>
+<!-- ACCESSORIES -->
 
+<article class="product" data-category="accessories">
 
-        </div>
+<div class="product-image">
 
+<div class="garment"></div>
 
-        <div
-            class="empty"
-            id="empty"
-        >
-            No hemos encontrado ningún producto.
-        </div>
+</div>
 
-    </main>
+<div class="product-info">
 
+<h3>Echo Keychain</h3>
 
+<p>Accesorio metálico</p>
 
-    <!-- ==========================================
-         PIE DE PÁGINA
-    =========================================== -->
+<div class="price">14,90 €</div>
 
-    <footer>
+</div>
 
-        <strong>
-            ECHOREALM
-        </strong>
+</article>
 
-        <br><br>
 
-        El principio de algo nuevo.
+<article class="product" data-category="accessories">
 
-    </footer>
+<div class="product-image">
 
+<div class="garment blue"></div>
 
+</div>
 
-    <!-- ==========================================
-         JAVASCRIPT
-         
-         BUSCADOR + FILTROS
-    =========================================== -->
+<div class="product-info">
 
-    <script>
+<h3>Echo Mini Bag</h3>
 
-        const search =
-            document.getElementById("search");
+<p>Bolsa compacta</p>
 
-        const products =
-            document.querySelectorAll(".product");
+<div class="price">24,90 €</div>
 
-        const filters =
-            document.querySelectorAll(".filter");
+</div>
 
-        const empty =
-            document.getElementById("empty");
+</article>
 
-        const counter =
-            document.getElementById("counter");
 
+</div>
 
-        let currentCategory = "todos";
+</section>
 
 
-        function filterProducts() {
+<section class="shop-bottom">
 
-            const searchText =
-                search.value
-                .toLowerCase()
-                .trim();
+<h2>
+REPLAY<br>
+THE FEELING.
+</h2>
 
+<p>
+La colección acaba aquí. El próximo capítulo todavía está por escribir.
+</p>
 
-            let visible = 0;
+<a href="index.html" class="home-button">
+Volver al inicio
+</a>
 
+</section>
 
-            products.forEach(product => {
 
-                const category =
-                    product.dataset.category;
+<script>
 
-                const name =
-                    product.dataset.name;
+function filterProducts(category){
 
+    const products =
+        document.querySelectorAll('.product');
 
-                const categoryMatch =
-                    currentCategory === "todos" ||
-                    category === currentCategory;
+    const buttons =
+        document.querySelectorAll('.filter');
 
+    buttons.forEach(button=>{
+        button.classList.remove('active');
+    });
 
-                const searchMatch =
-                    name.includes(searchText);
+    event.target.classList.add('active');
 
+    products.forEach(product=>{
 
-                if (
-                    categoryMatch &&
-                    searchMatch
-                ) {
-
-                    product.style.display = "";
-
-                    visible++;
-
-                } else {
-
-                    product.style.display = "none";
-
-                }
-
-            });
-
-
-            counter.textContent =
-                visible +
-                (visible === 1
-                    ? " producto"
-                    : " productos");
-
-
-            if (visible === 0) {
-
-                empty.style.display = "block";
-
-            } else {
-
-                empty.style.display = "none";
-
-            }
-
+        if(category === 'all'){
+            product.style.display = '';
         }
 
+        else if(product.dataset.category === category){
+            product.style.display = '';
+        }
 
-        filters.forEach(button => {
+        else{
+            product.style.display = 'none';
+        }
 
-            button.addEventListener(
-                "click",
-                () => {
+    });
 
-                    filters.forEach(
-                        item =>
-                            item.classList.remove("active")
-                    );
-
-                    button.classList.add("active");
-
-                    currentCategory =
-                        button.dataset.category;
-
-                    filterProducts();
-
-                }
-            );
-
-        });
+}
 
 
-        search.addEventListener(
-            "input",
-            filterProducts
-        );
+function searchProducts(){
 
+    const query =
+        document.getElementById('search')
+        .value
+        .toLowerCase();
 
-    </script>
+    const products =
+        document.querySelectorAll('.product');
 
+    products.forEach(product=>{
+
+        const text =
+            product.innerText.toLowerCase();
+
+        if(text.includes(query)){
+            product.style.display = '';
+        }
+
+        else{
+            product.style.display = 'none';
+        }
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>
