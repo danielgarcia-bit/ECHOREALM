@@ -1,1074 +1,1329 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ECHOREALM — Rewind the moment</title>
-
-<style>
-:root{
-    --blue:#3f73c8;
-    --blue-dark:#18365f;
-    --blue-light:#eaf3ff;
-    --white:#ffffff;
-    --off:#f7f9fc;
-    --text:#14243a;
-    --muted:#718096;
-    --line:#dce5f0;
-}
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--white);
-    color:var(--text);
-    overflow-x:hidden;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    font-family:inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    background:rgba(255,255,255,.88);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(220,229,240,.7);
-}
-
-.nav{
-    height:76px;
-    max-width:1400px;
-    margin:auto;
-    padding:0 32px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:13px;
-}
-
-/* Símbolo secundario */
-.brand-symbol{
-    width:34px;
-    height:34px;
-    border:3px solid var(--blue);
-    transform:rotate(45deg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.brand-symbol span{
-    transform:rotate(-45deg);
-    font-weight:900;
-    font-size:17px;
-    color:var(--blue);
-}
-
-.brand-name{
-    font-size:20px;
-    font-weight:900;
-    letter-spacing:-1px;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:32px;
-    font-size:14px;
-    font-weight:700;
-}
-
-.nav-links a{
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:var(--blue);
-}
-
-.nav-products{
-    padding:12px 20px;
-    background:var(--blue);
-    color:white!important;
-    border-radius:30px;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100vh;
-    padding:150px 7% 80px;
-    display:flex;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.hero-bg{
-    position:absolute;
-    width:620px;
-    height:620px;
-    border-radius:50%;
-    background:var(--blue-light);
-    right:-220px;
-    top:80px;
-    z-index:-1;
-}
-
-.hero-content{
-    max-width:780px;
-}
-
-.eyebrow{
-    color:var(--blue);
-    font-size:13px;
-    font-weight:800;
-    letter-spacing:3px;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(58px,9vw,135px);
-    line-height:.84;
-    letter-spacing:-7px;
-    font-weight:900;
-}
-
-.hero h1 span{
-    color:var(--blue);
-}
-
-.hero-sub{
-    max-width:560px;
-    margin-top:35px;
-    font-size:19px;
-    line-height:1.7;
-    color:var(--muted);
-}
-
-.hero-buttons{
-    display:flex;
-    gap:14px;
-    margin-top:40px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:16px 27px;
-    border-radius:40px;
-    font-size:14px;
-    font-weight:800;
-    transition:.25s;
-    display:inline-block;
-}
-
-.btn-primary{
-    background:var(--blue);
-    color:white;
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-}
-
-.btn-secondary{
-    border:1px solid var(--line);
-    background:white;
-}
-
-.btn-secondary:hover{
-    border-color:var(--blue);
-    color:var(--blue);
-}
-
-.signature{
-    position:absolute;
-    right:12%;
-    bottom:17%;
-    font-family:cursive;
-    font-size:55px;
-    color:var(--blue);
-    transform:rotate(-8deg);
-    opacity:.8;
-}
-
-/* =========================
-   INTRO
-========================= */
-
-.section{
-    padding:120px 7%;
-}
-
-.section-light{
-    background:var(--off);
-}
-
-.section-head{
-    max-width:800px;
-    margin-bottom:60px;
-}
-
-.section-label{
-    color:var(--blue);
-    font-size:12px;
-    letter-spacing:3px;
-    font-weight:900;
-    margin-bottom:18px;
-}
-
-.section-title{
-    font-size:clamp(38px,5vw,68px);
-    line-height:1;
-    letter-spacing:-3px;
-}
-
-.section-text{
-    margin-top:25px;
-    max-width:650px;
-    color:var(--muted);
-    line-height:1.8;
-    font-size:17px;
-}
-
-/* =========================
-   HISTORIA
-========================= */
-
-.history-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.history-card{
-    background:white;
-    border:1px solid var(--line);
-    border-radius:28px;
-    padding:42px;
-    min-height:270px;
-}
-
-.history-number{
-    font-size:14px;
-    font-weight:900;
-    color:var(--blue);
-    margin-bottom:30px;
-}
-
-.history-card h3{
-    font-size:28px;
-    margin-bottom:17px;
-}
-
-.history-card p{
-    color:var(--muted);
-    line-height:1.7;
-}
-
-/* =========================
-   SINGULARIDAD
-========================= */
-
-.singularity{
-    background:var(--blue-dark);
-    color:white;
-}
-
-.singularity .section-label{
-    color:#8db9ff;
-}
-
-.singularity-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.singularity-big{
-    font-size:clamp(60px,9vw,130px);
-    line-height:.8;
-    font-weight:900;
-    letter-spacing:-7px;
-}
-
-.singularity-big span{
-    color:#76aaff;
-}
-
-.singularity-copy p{
-    color:#cbd8e9;
-    line-height:1.8;
-    margin-bottom:25px;
-}
-
-.code-box{
-    margin-top:30px;
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:20px;
-    padding:25px;
-    font-size:14px;
-}
-
-.code-box strong{
-    color:#8db9ff;
-}
-
-/* =========================
-   UNIVERSO ECHOREALM
-========================= */
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.feature{
-    padding:35px;
-    border:1px solid var(--line);
-    border-radius:24px;
-    background:white;
-}
-
-.feature-icon{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:var(--blue-light);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--blue);
-    font-weight:900;
-    margin-bottom:25px;
-}
-
-.feature h3{
-    font-size:22px;
-    margin-bottom:12px;
-}
-
-.feature p{
-    color:var(--muted);
-    line-height:1.7;
-}
-
-/* =========================
-   CHAPTERS
-========================= */
-
-.chapters{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:14px;
-}
-
-.chapter{
-    min-height:230px;
-    border-radius:22px;
-    padding:25px;
-    background:white;
-    border:1px solid var(--line);
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.chapter-number{
-    color:var(--blue);
-    font-size:30px;
-    font-weight:900;
-}
-
-.chapter h3{
-    font-size:18px;
-}
-
-.chapter p{
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.5;
-}
-
-/* =========================
-   MEMBERSHIP
-========================= */
-
-.membership{
-    border:1px solid var(--line);
-    border-radius:35px;
-    padding:60px;
-    background:linear-gradient(135deg,#fff,#edf5ff);
-}
-
-.membership-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
-}
-
-.membership h2{
-    font-size:clamp(40px,5vw,70px);
-    letter-spacing:-3px;
-}
-
-.membership p{
-    color:var(--muted);
-    line-height:1.8;
-    margin-top:20px;
-}
-
-.membership-list{
-    list-style:none;
-    display:grid;
-    gap:14px;
-}
-
-.membership-list li{
-    background:white;
-    border-radius:15px;
-    padding:18px 20px;
-    border:1px solid var(--line);
-}
-
-.membership-list li::before{
-    content:"✓";
-    color:var(--blue);
-    font-weight:900;
-    margin-right:12px;
-}
-
-/* =========================
-   ECHO CODE
-========================= */
-
-.echo-code{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.code-card{
-    background:white;
-    border:1px solid var(--line);
-    border-radius:25px;
-    padding:40px;
-}
-
-.fake-qr{
-    width:160px;
-    height:160px;
-    margin-top:30px;
-    border:8px solid var(--text);
-    background:
-        linear-gradient(90deg,#14243a 10px,transparent 10px) 0 0/30px 30px,
-        linear-gradient(#14243a 10px,transparent 10px) 0 0/30px 30px,
-        white;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.final-cta{
-    padding:150px 7%;
-    text-align:center;
-}
-
-.final-cta h2{
-    font-size:clamp(45px,7vw,90px);
-    letter-spacing:-5px;
-}
-
-.final-cta p{
-    color:var(--muted);
-    margin:25px auto 35px;
-    max-width:600px;
-    line-height:1.7;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    border-top:1px solid var(--line);
-    padding:35px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    color:var(--muted);
-    font-size:13px;
-}
-
-.footer-brand{
-    font-weight:900;
-    color:var(--text);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-    .nav{
-        padding:0 20px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ECHOREALM — Rewind the Moment</title>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       ECHOREALM
+       SISTEMA VISUAL
+       ===================================================== */
+
+    :root {
+      --blue: #1769d5;
+      --blue-dark: #0d3f82;
+      --blue-soft: #dcecff;
+      --green: #b9f7a5;
+      --green-soft: #d9ffd0;
+      --white: #ffffff;
+      --cream: #f7f8f7;
+      --text: #102c50;
+      --muted: #6680a3;
+      --dark: #071d38;
     }
 
-    .nav-links a:not(.nav-products){
-        display:none;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .hero{
-        padding:130px 25px 80px;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .hero h1{
-        letter-spacing:-4px;
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
-    .signature{
-        right:10%;
-        bottom:10%;
-        font-size:40px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .section{
-        padding:80px 25px;
+    /* =====================================================
+       TIPOGRAFÍA PRINCIPAL
+       ===================================================== */
+
+    .brand-type,
+    h1,
+    h2,
+    h3,
+    .section-title,
+    .nav-link,
+    .button,
+    .eyebrow {
+      font-family: "Montserrat", sans-serif;
     }
 
-    .history-grid,
-    .singularity-grid,
-    .membership-grid,
-    .echo-code{
-        grid-template-columns:1fr;
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    header {
+      height: 82px;
+      width: 100%;
+      background: rgba(255,255,255,0.94);
+      border-bottom: 1px solid #e5edf7;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
     }
 
-    .features{
-        grid-template-columns:1fr;
+    .header-inner {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
     }
 
-    .chapters{
-        grid-template-columns:1fr 1fr;
+    /* LOGO */
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 220px;
     }
 
-    .membership{
-        padding:35px 25px;
-    }
-}
-
-@media(max-width:520px){
-
-    .brand-name{
-        font-size:17px;
-    }
-
-    .brand-symbol{
-        width:29px;
-        height:29px;
+    .logo-symbol {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #edf4ff;
+      border: 1px solid #d6e6fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .hero h1{
-        font-size:58px;
+    /*
+      Aquí dejamos un símbolo provisional.
+      Cuando tengamos el logo definitivo de ECHOREALM,
+      sustituimos este bloque por la imagen/SVG real.
+    */
+
+    .logo-symbol span {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      font-size: 25px;
+      color: var(--blue);
     }
 
-    .hero-sub{
-        font-size:16px;
+    .brand-name {
+      font-family: "Montserrat", sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: var(--blue-dark);
     }
 
-    .chapters{
-        grid-template-columns:1fr;
+    /* NAV */
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 34px;
+      flex: 1;
     }
 
-    footer{
-        flex-direction:column;
-        gap:15px;
+    .nav-link {
+      position: relative;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      padding: 10px 0;
+      transition: 0.25s;
     }
-}
-</style>
+
+    .nav-link:hover {
+      color: var(--blue);
+    }
+
+    .nav-link.active {
+      color: var(--blue);
+    }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: var(--blue);
+      left: 0;
+      bottom: 1px;
+      border-radius: 10px;
+    }
+
+    .nav-product {
+      background: var(--blue);
+      color: white;
+      padding: 13px 26px;
+      border-radius: 30px;
+    }
+
+    .nav-product:hover {
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .nav-product::after {
+      display: none;
+    }
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      min-height: 600px;
+      background:
+        radial-gradient(
+          circle at 78% 42%,
+          #d9eaff 0%,
+          #edf5ff 21%,
+          rgba(255,255,255,0) 45%
+        ),
+        #ffffff;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-inner {
+      width: min(1180px, 92%);
+      min-height: 600px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 30px;
+      position: relative;
+    }
+
+    /* pequeño texto superior */
+
+    .eyebrow {
+      color: #5d98df;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    /* Mancha verde */
+
+    .hero-title-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .hero-title-wrapper::before {
+      content: "";
+      position: absolute;
+      width: 570px;
+      height: 180px;
+      background: var(--green);
+      border-radius: 48% 52% 45% 55%;
+      left: -18px;
+      top: 15px;
+      transform: rotate(-2deg);
+      z-index: 0;
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 1;
+      line-height: 0.94;
+    }
+
+    .hero-script {
+      display: block;
+      font-family: cursive;
+      font-size: clamp(62px, 7vw, 104px);
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: -5px;
+      color: var(--blue);
+      transform: rotate(-3deg);
+      margin-left: 3px;
+    }
+
+    .hero-main {
+      display: block;
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(43px, 5vw, 76px);
+      font-weight: 800;
+      letter-spacing: -4px;
+      color: var(--blue-dark);
+    }
+
+    .star {
+      color: var(--blue);
+      font-size: 32px;
+      position: absolute;
+      right: -38px;
+      top: 10px;
+      transform: rotate(8deg);
+    }
+
+    /* Descripción */
+
+    .hero-description {
+      max-width: 550px;
+      color: #51749d;
+      font-size: 17px;
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    /* Botones */
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      min-width: 210px;
+      padding: 14px 25px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 8px 22px rgba(23,105,213,0.18);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(23,105,213,0.25);
+    }
+
+    .button-secondary {
+      border: 1.5px solid var(--blue);
+      color: var(--blue);
+      background: white;
+    }
+
+    .button-secondary:hover {
+      background: #f0f6ff;
+    }
+
+    /* =====================================================
+       SUDADERA / PRODUCTO HERO
+       ===================================================== */
+
+    .hero-product {
+      position: relative;
+      height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-circle {
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: #dceaff;
+      position: absolute;
+      right: 0;
+      top: 20px;
+    }
+
+    /*
+      Sudadera creada en CSS provisionalmente.
+      Más adelante podemos poner aquí la foto real
+      de la sudadera de ECHOREALM.
+    */
+
+    .hoodie {
+      width: 310px;
+      height: 340px;
+      background: linear-gradient(145deg, #eeeeee, #d2d2d2);
+      border-radius: 80px 80px 28px 28px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 18px 22px 35px rgba(35,65,100,0.18);
+    }
+
+    .hoodie::before {
+      content: "";
+      position: absolute;
+      width: 115px;
+      height: 105px;
+      border-radius: 50% 50% 35% 35%;
+      background: #d4d4d4;
+      top: -38px;
+      left: 98px;
+      box-shadow: inset 0 10px 15px rgba(0,0,0,0.06);
+    }
+
+    .hoodie::after {
+      content: "ECHOREALM";
+      position: absolute;
+      left: 50%;
+      top: 125px;
+      transform: translateX(-50%) rotate(-4deg);
+      color: var(--blue);
+      font-family: cursive;
+      font-weight: 800;
+      font-size: 21px;
+      white-space: nowrap;
+    }
+
+    .hoodie-pocket {
+      position: absolute;
+      width: 175px;
+      height: 62px;
+      border-bottom: 2px solid #c2c2c2;
+      border-radius: 0 0 50px 50px;
+      left: 67px;
+      bottom: 55px;
+    }
+
+    .hoodie-string-left,
+    .hoodie-string-right {
+      position: absolute;
+      height: 72px;
+      width: 2px;
+      background: #aaa;
+      top: 28px;
+      z-index: 4;
+    }
+
+    .hoodie-string-left {
+      left: 137px;
+      transform: rotate(8deg);
+    }
+
+    .hoodie-string-right {
+      right: 137px;
+      transform: rotate(-8deg);
+    }
+
+    /* Detalle E */
+
+    .e-detail {
+      position: absolute;
+      right: -20px;
+      top: 0;
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      border: 5px solid #b9d8fa;
+      background: #f0f7ff;
+      overflow: hidden;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .e-detail span {
+      font-family: "Montserrat", sans-serif;
+      font-size: 80px;
+      font-weight: 800;
+      color: var(--blue);
+    }
+
+    /* firma */
+
+    .echo-signature {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      color: var(--blue);
+      font-family: cursive;
+      font-size: 43px;
+      font-style: italic;
+      transform: rotate(-8deg);
+      z-index: 5;
+    }
+
+    .echo-line {
+      display: block;
+      width: 105px;
+      height: 2px;
+      background: var(--blue);
+      transform: rotate(-4deg);
+      margin-left: 15px;
+    }
+
+    /* =====================================================
+       HISTORIA
+       ===================================================== */
+
+    .history {
+      background: #edf6ff;
+      padding: 70px 0 75px;
+    }
+
+    .history-inner {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .section-label {
+      font-family: "Montserrat", sans-serif;
+      color: #5e9be1;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .history-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -2.5px;
+      color: var(--blue-dark);
+      position: relative;
+      display: inline;
+    }
+
+    .history-title::before {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 90px;
+      background: var(--green);
+      border-radius: 50%;
+      left: -15px;
+      top: -3px;
+      transform: rotate(-2deg);
+      z-index: 0;
+    }
+
+    .history-title span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .history-text {
+      margin-top: 24px;
+      color: #55789f;
+      line-height: 1.65;
+      font-size: 15px;
+      max-width: 460px;
+    }
+
+    .history-link {
+      display: inline-block;
+      margin-top: 22px;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* Cards */
+
+    .history-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+    }
+
+    .history-card {
+      min-height: 190px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(195,215,238,0.8);
+      border-radius: 7px;
+      padding: 24px 18px;
+      box-shadow: 0 5px 15px rgba(35,85,135,0.04);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #e2efff;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 22px;
+    }
+
+    .history-card h3 {
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--blue-dark);
+      margin-bottom: 10px;
+    }
+
+    .history-card p {
+      color: #6383a5;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* =====================================================
+       SINGULARIDAD
+       ===================================================== */
+
+    .singularity {
+      min-height: 450px;
+      background: var(--dark);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .singularity-inner {
+      width: min(1180px, 92%);
+      min-height: 450px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .singularity-copy {
+      width: 48%;
+      position: relative;
+      z-index: 3;
+    }
+
+    .singularity-label {
+      color: #6ea8ed;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .singularity h2 {
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .singularity p {
+      color: #a8c3e1;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 470px;
+    }
+
+    .singularity-circle {
+      position: absolute;
+      right: -120px;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: #0b2d53;
+      border: 1px solid rgba(100,160,220,0.18);
+    }
+
+    .singularity-e {
+      position: absolute;
+      right: 120px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 300px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.08);
+    }
+
+    /* =====================================================
+       MEMBERSHIP
+       ===================================================== */
+
+    .membership {
+      padding: 90px 0;
+      background: white;
+    }
+
+    .membership-inner {
+      width: min(900px, 92%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .membership h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      letter-spacing: -3px;
+      color: var(--blue-dark);
+      margin-bottom: 18px;
+    }
+
+    .membership p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* =====================================================
+       CTA
+       ===================================================== */
+
+    .final-cta {
+      background: var(--blue);
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(40px, 6vw, 72px);
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .final-cta .button {
+      background: white;
+      color: var(--blue);
+      margin: auto;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+      background: #061a31;
+      color: #a5c0dd;
+      padding: 35px 0;
+    }
+
+    .footer-inner {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+    }
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media (max-width: 900px) {
+
+      nav {
+        gap: 15px;
+      }
+
+      .logo-area {
+        min-width: auto;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+      }
+
+      .hero-product {
+        height: 430px;
+      }
+
+      .history-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .history-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .singularity-copy {
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      header {
+        height: 70px;
+      }
+
+      .logo-symbol {
+        width: 44px;
+        height: 44px;
+      }
+
+      .logo-symbol span {
+        font-size: 20px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .header-inner {
+        justify-content: space-between;
+      }
+
+      .nav-product {
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 50px 0 30px;
+      }
+
+      .hero-title-wrapper::before {
+        width: 330px;
+        height: 130px;
+      }
+
+      .hero-script {
+        font-size: 58px;
+      }
+
+      .hero-main {
+        font-size: 42px;
+        letter-spacing: -2.5px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-product {
+        height: 380px;
+      }
+
+      .product-circle {
+        width: 350px;
+        height: 350px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+
+      .hoodie {
+        transform: scale(0.82);
+      }
+
+      .e-detail {
+        right: 0;
+        width: 105px;
+        height: 105px;
+      }
+
+      .e-detail span {
+        font-size: 48px;
+      }
+
+      .echo-signature {
+        right: 0;
+        font-size: 32px;
+      }
+
+      .history {
+        padding: 55px 0;
+      }
+
+      .history-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .history-card {
+        min-height: 175px;
+      }
+
+      .singularity-copy {
+        width: 100%;
+      }
+
+      .singularity-circle {
+        opacity: 0.5;
+      }
+
+      .singularity-e {
+        right: -20px;
+        font-size: 200px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<header>
-    <nav class="nav">
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
-        <a href="index.html" class="brand">
-            <div class="brand-symbol">
-                <span>E</span>
-            </div>
+  <header>
+    <div class="header-inner">
 
-            <div class="brand-name">
-                ECHOREALM
-            </div>
+      <a href="index.html" class="logo-area">
+
+        <div class="logo-symbol">
+          <span>E</span>
+        </div>
+
+        <div class="brand-name">
+          ECHOREALM
+        </div>
+
+      </a>
+
+
+      <nav>
+
+        <a href="#inicio" class="nav-link active">
+          Inicio
         </a>
 
-        <div class="nav-links">
-            <a href="#historia">Nuestra historia</a>
-            <a href="#singularidad">Singularidad</a>
-            <a href="#membership">Membership</a>
-            <a href="productos.html" class="nav-products">Productos</a>
-        </div>
+        <a href="#historia" class="nav-link">
+          Nuestra historia
+        </a>
 
-    </nav>
-</header>
+        <a href="#singularidad" class="nav-link">
+          Singularidad
+        </a>
+
+        <a href="#membership" class="nav-link">
+          Membership
+        </a>
+
+        <a href="productos.html" class="nav-link nav-product">
+          Productos
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
 
 
-<!-- HERO -->
 
-<section class="hero">
+  <!-- =====================================================
+       HERO / PRIMERA DIAPOSITIVA
+       ===================================================== -->
 
-    <div class="hero-bg"></div>
+  <main>
 
-    <div class="hero-content">
+    <section class="hero" id="inicio">
 
-        <div class="eyebrow">
+      <div class="hero-inner">
+
+        <!-- TEXTO -->
+
+        <div class="hero-copy">
+
+          <div class="eyebrow">
             ECHOREALM / EST. 2026
-        </div>
+          </div>
 
-        <h1>
-            REWIND<br>
-            THE <span>MOMENT.</span>
-        </h1>
 
-        <p class="hero-sub">
+          <div class="hero-title-wrapper">
+
+            <h1 class="hero-title">
+
+              <span class="hero-script">
+                REWIND
+              </span>
+
+              <span class="hero-main">
+                THE MOMENT.
+              </span>
+
+              <span class="star">
+                ✦
+              </span>
+
+            </h1>
+
+          </div>
+
+
+          <p class="hero-description">
+
             Ropa para quienes convierten los momentos en recuerdos
             y los recuerdos en algo que pueden llevar consigo.
-        </p>
 
-        <div class="hero-buttons">
+          </p>
 
-            <a href="productos.html" class="btn btn-primary">
-                Explorar productos
+
+          <div class="hero-buttons">
+
+            <a
+              href="productos.html"
+              class="button button-primary"
+            >
+              Explorar productos
+              <span>→</span>
             </a>
 
-            <a href="#historia" class="btn btn-secondary">
-                Conocer ECHOREALM
+
+            <a
+              href="#historia"
+              class="button button-secondary"
+            >
+              Conocer ECHOREALM
             </a>
+
+          </div>
 
         </div>
 
-    </div>
-
-    <div class="signature">
-        echo
-    </div>
-
-</section>
 
 
-<!-- HISTORIA -->
+        <!-- SUDADERA -->
 
-<section class="section" id="historia">
+        <div class="hero-product">
 
-    <div class="section-head">
+          <div class="product-circle"></div>
 
-        <div class="section-label">
+          <div class="hoodie">
+
+            <div class="hoodie-string-left"></div>
+            <div class="hoodie-string-right"></div>
+
+            <div class="hoodie-pocket"></div>
+
+          </div>
+
+
+          <!-- DETALLE DE LA E -->
+
+          <div class="e-detail">
+            <span>E</span>
+          </div>
+
+
+          <!-- FIRMA -->
+
+          <div class="echo-signature">
+
+            echo
+
+            <span class="echo-line"></span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NUESTRA HISTORIA
+         ===================================================== -->
+
+    <section class="history" id="historia">
+
+      <div class="history-inner">
+
+        <div>
+
+          <div class="section-label">
             NUESTRA HISTORIA
+          </div>
+
+
+          <h2 class="history-title">
+
+            <span>
+              Una marca nacida
+              <br>
+              de un momento.
+            </span>
+
+          </h2>
+
+
+          <p class="history-text">
+
+            ECHOREALM nace de una idea sencilla:
+            hay momentos que queremos volver a vivir.
+            Una canción, una noche, una conversación,
+            un viaje o simplemente una sensación.
+
+          </p>
+
+
+          <a href="#singularidad" class="history-link">
+            Conocer más →
+          </a>
+
         </div>
 
-        <h2 class="section-title">
-            Una marca nacida<br>
-            de un momento.
-        </h2>
-
-        <p class="section-text">
-            ECHOREALM nace de una idea sencilla: hay momentos que
-            queremos volver a vivir. Una canción, una noche, una
-            conversación, un viaje o simplemente una sensación.
-        </p>
-
-    </div>
 
 
-    <div class="history-grid">
+        <div class="history-cards">
 
-        <article class="history-card">
-            <div class="history-number">01 / EL MOMENTO</div>
-            <h3>Todo empieza aquí.</h3>
+          <article class="history-card">
+
+            <div class="card-icon">
+              ✦
+            </div>
+
+            <h3>
+              ESTILO ÚNICO
+            </h3>
+
             <p>
-                No buscamos crear ropa que simplemente se vea bien.
-                Queremos crear prendas que terminen formando parte
-                de tus recuerdos.
+              Diseños que conectan con tu historia.
             </p>
-        </article>
 
-        <article class="history-card">
-            <div class="history-number">02 / EL ECHO</div>
-            <h3>Lo que permanece.</h3>
+          </article>
+
+
+          <article class="history-card">
+
+            <div class="card-icon">
+              ♫
+            </div>
+
+            <h3>
+              CULTURA URBANA
+            </h3>
+
             <p>
-                Como una canción que vuelve a sonar en tu cabeza,
-                ciertos momentos permanecen. ECHOREALM convierte
-                esa sensación en identidad.
+              Ropa, música y actitud.
             </p>
-        </article>
 
-        <article class="history-card">
-            <div class="history-number">03 / LA CULTURA</div>
-            <h3>Ropa + música + calle.</h3>
+          </article>
+
+
+          <article class="history-card">
+
+            <div class="card-icon">
+              ∞
+            </div>
+
+            <h3>
+              COMUNIDAD
+            </h3>
+
             <p>
-                Nuestra estética mezcla cultura urbana, música,
-                recuerdos digitales y una visión contemporánea
-                de la moda.
+              Juntos en cada capítulo.
             </p>
-        </article>
 
-        <article class="history-card">
-            <div class="history-number">04 / EL FUTURO</div>
-            <h3>Crear nuevos recuerdos.</h3>
+          </article>
+
+
+          <article class="history-card">
+
+            <div class="card-icon">
+              ◎
+            </div>
+
+            <h3>
+              SOSTENIBILIDAD
+            </h3>
+
             <p>
-                ECHOREALM no mira únicamente hacia atrás.
-                Cada colección representa una nueva etapa,
-                un nuevo capítulo y un nuevo momento.
+              Un futuro mejor también es parte del plan.
             </p>
-        </article>
 
-    </div>
+          </article>
 
-</section>
-
-
-<!-- SINGULARIDAD -->
-
-<section class="section singularity" id="singularidad">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            LA SINGULARIDAD
         </div>
 
-        <h2 class="section-title">
-            Cada prenda<br>
-            tiene su propio eco.
-        </h2>
+      </div>
 
-    </div>
+    </section>
 
 
-    <div class="singularity-grid">
 
-        <div class="singularity-big">
-            01<br>
-            <span>→</span><br>
-            ∞
-        </div>
+    <!-- =====================================================
+         SINGULARIDAD
+         ===================================================== -->
+
+    <section class="singularity" id="singularidad">
+
+      <div class="singularity-inner">
 
         <div class="singularity-copy">
 
-            <p>
-                La singularidad es una de las ideas centrales de
-                ECHOREALM: ninguna experiencia es exactamente igual
-                a otra.
-            </p>
+          <div class="singularity-label">
+            LA SINGULARIDAD
+          </div>
 
-            <p>
-                Por eso determinadas prendas incorporan un
-                <strong>ECHOCODE</strong> único. Ese código conecta
-                la prenda con una experiencia digital.
-            </p>
 
-            <div class="code-box">
-                <strong>ECHOCODE / 017</strong><br><br>
-                Una prenda.<br>
-                Un momento.<br>
-                Una historia.
-            </div>
+          <h2>
+            Cada prenda
+            <br>
+            tiene su propio
+            <br>
+            eco.
+          </h2>
+
+
+          <p>
+
+            Cada pieza de ECHOREALM forma parte de una historia.
+            Algunas prendas podrán tener su propio ECHOCODE,
+            conectando lo físico con una experiencia digital.
+
+          </p>
 
         </div>
 
-    </div>
 
-</section>
+        <div class="singularity-circle"></div>
+
+        <div class="singularity-e">
+          E
+        </div>
+
+      </div>
+
+    </section>
 
 
-<!-- UNIVERSO -->
 
-<section class="section section-light">
+    <!-- =====================================================
+         MEMBERSHIP
+         ===================================================== -->
 
-    <div class="section-head">
+    <section class="membership" id="membership">
+
+      <div class="membership-inner">
 
         <div class="section-label">
-            EL UNIVERSO ECHOREALM
+          ECHOREALM MEMBERSHIP
         </div>
 
-        <h2 class="section-title">
-            Más que una<br>
-            prenda.
+
+        <h2>
+          Stay in the echo.
         </h2>
 
-    </div>
 
-    <div class="features">
+        <p>
 
-        <article class="feature">
-            <div class="feature-icon">01</div>
-            <h3>Echo Stitch</h3>
-            <p>
-                Detalles bordados y etiquetas tejidas que hacen
-                reconocible cada prenda.
-            </p>
-        </article>
+          Forma parte de la comunidad ECHOREALM,
+          descubre nuevos capítulos, experiencias,
+          lanzamientos y contenido exclusivo.
 
-        <article class="feature">
-            <div class="feature-icon">02</div>
-            <h3>Echo Wave</h3>
-            <p>
-                La frecuencia y el sonido forman parte de nuestro
-                lenguaje visual.
-            </p>
-        </article>
-
-        <article class="feature">
-            <div class="feature-icon">03</div>
-            <h3>Echo Code</h3>
-            <p>
-                Algunas prendas esconden una conexión digital
-                exclusiva.
-            </p>
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- CHAPTERS -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            COLLECTIONS / CHAPTERS
-        </div>
-
-        <h2 class="section-title">
-            Cada colección<br>
-            es un capítulo.
-        </h2>
-
-    </div>
-
-    <div class="chapters">
-
-        <article class="chapter">
-            <div class="chapter-number">01</div>
-            <h3>REPLAY</h3>
-            <p>Rewind the moment.</p>
-        </article>
-
-        <article class="chapter">
-            <div class="chapter-number">02</div>
-            <h3>AFTERGLOW</h3>
-            <p>After the moment, the feeling stays.</p>
-        </article>
-
-        <article class="chapter">
-            <div class="chapter-number">03</div>
-            <h3>LOST FREQUENCY</h3>
-            <p>Find the frequency.</p>
-        </article>
-
-        <article class="chapter">
-            <div class="chapter-number">04</div>
-            <h3>ECHO / UNKNOWN</h3>
-            <p>Unknown is part of the realm.</p>
-        </article>
-
-        <article class="chapter">
-            <div class="chapter-number">05</div>
-            <h3>NO SIGNAL</h3>
-            <p>Still connected.</p>
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- MEMBERSHIP -->
-
-<section class="section section-light" id="membership">
-
-    <div class="membership">
-
-        <div class="membership-grid">
-
-            <div>
-
-                <div class="section-label">
-                    ECHOREALM MEMBERSHIP
-                </div>
-
-                <h2>
-                    Stay inside<br>
-                    the realm.
-                </h2>
-
-                <p>
-                    La membresía conecta a la comunidad ECHOREALM
-                    con colecciones, contenidos y experiencias
-                    exclusivas.
-                </p>
-
-            </div>
-
-            <ul class="membership-list">
-
-                <li>Early access a nuevas colecciones</li>
-                <li>Member drops exclusivos</li>
-                <li>Contenido detrás del proceso creativo</li>
-                <li>Votaciones de futuras colecciones</li>
-                <li>Beneficios y promociones especiales</li>
-                <li>Echo Points por compras</li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ECHO CODE -->
-
-<section class="section">
-
-    <div class="section-head">
-
-        <div class="section-label">
-            ECHO CODE
-        </div>
-
-        <h2 class="section-title">
-            Una prenda.<br>
-            Una conexión.
-        </h2>
-
-        <p class="section-text">
-            El Echo Code convierte determinadas prendas en una
-            puerta de entrada al universo digital de ECHOREALM.
         </p>
 
-    </div>
+      </div>
+
+    </section>
 
 
-    <div class="echo-code">
 
-        <div class="code-card">
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
 
-            <h3>¿Cómo funciona?</h3>
+    <section class="final-cta">
 
-            <p class="section-text">
-                Escanea el código incluido en la etiqueta interior
-                de la prenda para descubrir contenido asociado
-                a esa pieza.
-            </p>
-
-            <div class="fake-qr"></div>
-
-        </div>
+      <h2>
+        REPLAY THE FEELING.
+      </h2>
 
 
-        <div class="code-card">
+      <a
+        href="productos.html"
+        class="button"
+      >
+        Explorar productos →
+      </a>
 
-            <h3>El contenido puede cambiar.</h3>
+    </section>
 
-            <p class="section-text">
-                Una playlist, imágenes, vídeos, historias,
-                mensajes de la comunidad o contenido exclusivo.
-            </p>
-
-            <br>
-
-            <a href="productos.html" class="btn btn-primary">
-                Ver prendas con Echo Code
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
+  </main>
 
 
-<!-- CTA -->
 
-<section class="final-cta">
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
 
-    <div class="section-label">
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
         ECHOREALM
+      </div>
+
+      <div class="footer-copy">
+        © 2026 ECHOREALM — REWIND THE MOMENT.
+      </div>
+
     </div>
 
-    <h2>
-        REPLAY<br>
-        THE FEELING.
-    </h2>
+  </footer>
 
-    <p>
-        Descubre la primera colección y encuentra la pieza
-        que formará parte de tu próximo recuerdo.
-    </p>
-
-    <a href="productos.html" class="btn btn-primary">
-        Explorar productos
-    </a>
-
-</section>
-
-
-<footer>
-
-    <div class="footer-brand">
-        ECHOREALM
-    </div>
-
-    <div>
-        REWIND THE MOMENT. REPLAY THE FEELING.
-    </div>
-
-    <div>
-        © 2026 ECHOREALM
-    </div>
-
-</footer>
 
 </body>
 </html>
